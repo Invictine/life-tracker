@@ -17,7 +17,7 @@ Last updated: 2026-09-01 (Asia/Kolkata)
 - **CT 102:** `rssbridge` is defined but not running/created; decide whether it is still needed.
 - **CT 103:** diagnose the same five generic Debian-in-LXC failed units separately from Minecraft/Playit health.
 - **CT 104:** Cloudflare Tunnel and Access are deferred; `server.invictine.com` is not yet the active dashboard address.
-- **CT 105:** complete/confirm the deployment task's definitive blocking test and network-wide DNS cutover. The Pi-hole service and dashboards are already reachable.
+- **CT 105:** reserve or exclude `192.168.1.74` in the router's DHCP settings, then configure the router's LAN DNS server as `192.168.1.74` when network-wide filtering is desired. Pi-hole forwarding/blocking is already verified; the router/client DNS cutover was intentionally not made during deployment.
 - **CT 105:** three generic Debian-in-LXC namespace-related units are failed (`systemd-logind`, `systemd-networkd`, `systemd-networkd.socket`); do not change container plumbing as incidental Pi-hole cleanup.
 
 ## Operational hygiene
