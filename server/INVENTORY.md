@@ -18,7 +18,7 @@ Last updated: 2026-09-01 (Asia/Kolkata)
 
 ## Networking
 
-- Management bridge `vmbr0`: `192.168.1.69/24`
+- Management bridge `vmbr0`: `192.168.1.30/24`
 - Default gateway: `192.168.1.1`
 - Physical management NIC: `enp4s0`, onboard Realtek RTL8111/8168 using `r8169`
 - Management MAC: `A0:AD:9F:B9:2B:B5`
@@ -39,14 +39,15 @@ All are unprivileged Debian 12 LXCs with host-boot enabled.
 
 | ID | Hostname | CPU | RAM / swap | Root disk | Address |
 |---:|---|---:|---:|---:|---|
-| 100 | `rss-leads-discord` | 1 vCPU | 256 MiB / 256 MiB | 2 GB | DHCP; `192.168.1.12` observed 2026-09-01 |
-| 101 | `hermes-agent` | 2 vCPU | 2 GiB / 512 MiB | 16 GB | `192.168.1.71/24` |
-| 102 | `invictinefeed` | 2 vCPU | 2 GiB / 512 MiB | 12 GB | `192.168.1.70/24` |
-| 103 | `minecraft` | 2 vCPU | 2304 MiB / 512 MiB | 12 GB | `192.168.1.72/24` |
-| 104 | `homepage` | 1 vCPU | 512 MiB / 256 MiB | 6 GB | `192.168.1.73/24` |
-| 105 | `pihole` | 1 vCPU | 512 MiB / 256 MiB | 8 GB | `192.168.1.74/24` |
+| 100 | `rss-leads-discord` | 1 vCPU | 256 MiB / 256 MiB | 2 GB | `192.168.1.31/24` |
+| 101 | `hermes-agent` | 2 vCPU | 2 GiB / 512 MiB | 16 GB | `192.168.1.32/24` |
+| 102 | `invictinefeed` | 2 vCPU | 2 GiB / 512 MiB | 12 GB | `192.168.1.33/24` |
+| 103 | `minecraft` | 2 vCPU | 2304 MiB / 512 MiB | 12 GB | `192.168.1.34/24` |
+| 104 | `homepage` | 1 vCPU | 512 MiB / 256 MiB | 6 GB | `192.168.1.35/24` |
+| 105 | `pihole` | 1 vCPU | 512 MiB / 256 MiB | 8 GB | `192.168.1.36/24` |
+| 106 | `homeassistant` | 2 vCPU | 2 GiB / 512 MiB | 16 GB | `192.168.1.37/24` |
 
-CTs 101, 102, and 104 enable `nesting=1,keyctl=1` for Docker-in-LXC. CT 105 has Proxmox protection enabled.
+CTs 101, 102, 104, and 106 enable `nesting=1,keyctl=1` for Docker-in-LXC. CT 105 has Proxmox protection enabled.
 
 ## CT 100 — Discord lead notifier
 
@@ -60,7 +61,7 @@ CTs 101, 102, and 104 enable `nesting=1,keyctl=1` for Docker-in-LXC. CT 105 has 
 - Timer: `rss-leads-discord-notifier.timer`, 10 seconds after boot and every 20 seconds
 - Notification text includes role mention, priority, likely monthly/hourly compensation, and AI summary so previews are useful; the detailed embed remains below
 
-CT 100 uses DHCP. Its previously observed address was `192.168.1.3`; `192.168.1.12` is the newer observation and should be treated as current but not fixed.
+CT 100 has a static IP address `192.168.1.31` configured (migrated from initial DHCP on 2026-09-01).
 
 ## CT 101 — Hermes Agent
 
@@ -83,7 +84,7 @@ CT 100 uses DHCP. Its previously observed address was `192.168.1.3`; `192.168.1.
 - FreshRSS is the system of record
 - Docker Compose v1 (`docker-compose` 1.29.2), not the `docker compose` subcommand
 - Live directory had no `.git` metadata when inventoried
-- Main endpoints: FreshRSS `http://192.168.1.70/`; Mass Apply `http://192.168.1.70:8092/`
+- Main endpoints: FreshRSS `http://192.168.1.33/`; Mass Apply `http://192.168.1.33:8092/`
 
 Compose services defined: `freshrss`, `ai-filter`, `mass-apply`, and `rssbridge`. Running services observed:
 
@@ -133,26 +134,50 @@ Lead-processing architecture:
 - Custom `invictine-heart` datapack creates an animated heart/cherry/arrow/sparkle/infinity installation with `Invictine` and `Anaya` labels near `-105 110 -102`, active only within 128 blocks
 - Local mirror: `C:\Users\aniru\Documents\Server\ct103\minecraft-server`
 
-## CT 104 — Homepage dashboard
+## CT 104 — Homepage dashboard & Telemetry
 
 - Homepage v1.13.2 pinned to amd64 digest `sha256:c881120b024d6a8e2f3c9664efc568984e4352e47df459d6b32e225374c71955`
 - Live config: `/opt/homepage/config`
-- Direct URL: `http://192.168.1.73:3000/`
-- Friendly mDNS/Nginx URL: `http://invictine.local/`
+- Direct URL: `http://192.168.1.35:3000/`
+- Friendly mDNS/Nginx URL: `http://invictine.local/` (`http://192.168.1.35/`)
 - Intended future hostname: `server.invictine.com`
 - Avahi advertises `invictine.local`; Nginx port 80 proxies to `127.0.0.1:3000`
-- Dashboard has no service credentials and does not mount the Docker socket
-- Cloudflare Tunnel and Cloudflare Access are intentionally not configured yet
+- Homepage container runs with `PUID=0`, `PGID=0`, `cap_add: [NET_RAW]` for unprivileged ICMP ping checks
+- Telemetry daemon: Python 3 daemon `/opt/telemetry/telemetry_daemon.py` managed by `invictine-telemetry.service` on port 8000
+- Nginx reverse proxies:
+  - Telemetry API: `/api/telemetry/` (CORS enabled, 5s TTL cache)
+  - 3D printer webcam stream: `/webcam/` (proxied from Moonraker `192.168.1.18`)
+  - 3D printer webcam HTML5 viewer: `/printer-camera/`
+- Dashboard UI: customized via `custom.js` (live telemetry overlay) and `custom.css` (Invictine brand tokens)
+- Read-only Proxmox API token: `dashboard-ro@pve!telemetry` in `/etc/invictine-telemetry.env`
 - Local mirror: `C:\Users\aniru\Documents\Server\ct104\homepage`
 
 ## CT 105 — Pi-hole
 
-- Dedicated Pi-hole DNS sinkhole at `192.168.1.74`
+- Dedicated Pi-hole DNS sinkhole at `192.168.1.36`
 - DNS listeners: TCP and UDP port 53
 - Dashboard listeners: HTTP 80 and HTTPS 443
 - Pi-hole installation and verification completed 2026-09-01
 - Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no DHCP service
 - DNS forwarding and blocking verified; 78,609 blocking domains loaded
-- Dashboard: `http://192.168.1.74/admin/` (HTTP and HTTPS verified)
-- Router/client DNS was not changed during deployment; network-wide filtering is not active until LAN DNS is pointed to `192.168.1.74`
+- Dashboard: `http://192.168.1.36/admin/` (HTTP and HTTPS verified)
+- Router/client DNS was not changed during deployment; network-wide filtering is not active until LAN DNS is pointed to `192.168.1.36`
 - Root-only admin credential file: `/root/.pihole-admin-password` inside CT 105; never read, print, or persist its value
+
+## CT 106 — Home Assistant
+
+- Purpose: Home Assistant Container
+- Unprivileged LXC with `nesting=1,keyctl=1`; Docker runs inside
+- Static IP: `192.168.1.37/24`, gateway `192.168.1.1`
+- Docker Compose: `/opt/homeassistant/docker-compose.yml`
+- Container: `ghcr.io/home-assistant/home-assistant:stable` in `host` network mode (for mDNS/UPnP discovery)
+- Storage: persistent configuration at `/opt/homeassistant/config`
+- User-facing endpoint: `http://192.168.1.37:8123/`
+
+## 3D Printer (Mainsail & Moonraker)
+
+- Static LAN address: `192.168.1.18`
+- API: Moonraker JSON-RPC & REST on port 80
+- Live print stats query: `/printer/objects/query?print_stats&display_status&extruder&heater_bed`
+- Print history: `/server/history/list?limit=1`
+- MJPEG camera stream: `http://192.168.1.18/webcam/?action=stream`

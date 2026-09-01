@@ -1,12 +1,12 @@
 # Server Status
 
-Last live verification: **2026-09-01 19:05–19:12 IST**
+Last live verification: **2026-09-02 05:00 IST**
 
 ## Current state
 
 - Proxmox node `invictineserver` is online and single-node.
 - Version: Proxmox VE 9.0.11 on Debian 13 (`trixie`); running kernel `6.14.11-4-pve`.
-- CTs 100–105 are running. No QEMU VMs are configured.
+- CTs 100–106 are running. No QEMU VMs are configured.
 - Proxmox services `pveproxy`, `pvedaemon`, `pvestatd`, and `pve-cluster` are active. `corosync` is inactive as expected for this single-node setup.
 - Root filesystem: 94 GiB usable, 25 GiB used (28%).
 - `local-lvm`: 349.17 GiB thin pool, 5.02% data and 0.64% metadata used.
@@ -21,25 +21,28 @@ Last live verification: **2026-09-01 19:05–19:12 IST**
 
 | Guest | Verified state |
 |---|---|
-| CT 100 | Notifier timer active; oneshot service inactive between runs as expected. DHCP address observed as `192.168.1.12`. Five generic Debian-in-LXC units are failed: `logrotate`, `man-db`, `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`. |
-| CT 101 | Docker active; `hermes-agent` container up for eight days; no failed systemd units. |
-| CT 102 | `freshrss`, `rss-leads-ai-filter`, and `rss-leads-mass-apply` containers are up. Scam-check timer runs every 30 seconds. No failed systemd units. |
-| CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. The same five generic Debian-in-LXC units as CT 100 are failed. |
-| CT 104 | Homepage container healthy; Nginx, Avahi, and Docker active; no failed systemd units. |
-| CT 105 | Pi-hole installation complete. FTL active; DNS forwarding and blocking verified; 78,609 blocking domains loaded; dashboard HTTP/HTTPS verified. Three generic Debian-in-LXC units are failed: `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`; Pi-hole components are not among them. Router/client DNS was not changed, so filtering is not network-wide yet. |
+| CT 100 | Notifier timer active; oneshot service inactive between runs as expected. Static address `192.168.1.31`. Five generic Debian-in-LXC units are failed: `logrotate`, `man-db`, `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`. |
+| CT 101 | Docker active; `hermes-agent` container up; static address `192.168.1.32`; no failed systemd units. |
+| CT 102 | `freshrss`, `rss-leads-ai-filter`, and `rss-leads-mass-apply` containers are up. Scam-check timer runs every 30 seconds. Static address `192.168.1.33`. No failed systemd units. |
+| CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. Static address `192.168.1.34`. The same five generic Debian-in-LXC units as CT 100 are failed. |
+| CT 104 | Homepage container healthy; Nginx, Avahi, Docker, and `invictine-telemetry.service` active; static address `192.168.1.35`; no failed systemd units. |
+| CT 105 | Pi-hole installation complete. FTL active; DNS forwarding and blocking verified; 78,609 blocking domains loaded; dashboard HTTP/HTTPS verified. Static address `192.168.1.36`. Three generic Debian-in-LXC units are failed: `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`; Pi-hole components are not among them. Router/client DNS was not changed, so filtering is not network-wide yet. |
+| CT 106 | Home Assistant container active via Docker Compose (`host` network mode); persistent storage at `/opt/homeassistant/config`; static address `192.168.1.37`. No failed systemd units. |
 
 ## User-facing checks
 
-All returned HTTP 200 from the management PC on 2026-09-01:
+All verified functional from the management PC on 2026-09-02:
 
-- Proxmox: `https://192.168.1.69:8006/`
-- FreshRSS: `http://192.168.1.70/`
-- Mass Apply: `http://192.168.1.70:8092/`
-- Homepage direct: `http://192.168.1.73:3000/`
-- Homepage Nginx: `http://192.168.1.73/`
-- Pi-hole: `http://192.168.1.74/admin/`
-
-TCP `192.168.1.72:25565` was reachable.
+- Proxmox: `https://192.168.1.30:8006/`
+- FreshRSS: `http://192.168.1.33/`
+- Mass Apply: `http://192.168.1.33:8092/`
+- Minecraft: `192.168.1.34:25565` (LazyMC) / `drake-spinal.tun.ply.gg` (Playit)
+- Homepage direct: `http://192.168.1.35:3000/`
+- Homepage Nginx / friendly: `http://invictine.local/` (`http://192.168.1.35/`)
+- Unified Telemetry API: `http://invictine.local/api/telemetry/overview`
+- 3D Printer Webcam proxy: `http://invictine.local/printer-camera/`
+- Pi-hole: `http://192.168.1.36/admin/`
+- Home Assistant: `http://192.168.1.37:8123/`
 
 ## Backups and replication
 

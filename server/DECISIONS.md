@@ -54,7 +54,7 @@ Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket o
 
 **Status:** ACTIVE
 
-Use CT 105 at `192.168.1.74` as a dedicated protected Pi-hole guest, with Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no Pi-hole DHCP service.
+Use CT 105 at `192.168.1.36` (migrated from initial `.74`) as a dedicated protected Pi-hole guest, with Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no Pi-hole DHCP service.
 
 ## Product UI — Invictine Leads brand kit
 
@@ -77,3 +77,37 @@ Automate host configuration backups on a daily systemd timer (`pve-config-backup
 - Enforces a 30-day retention policy while retaining at least 7 archives.
 - Maintains `/usr/local/sbin/pve-config-restore` supporting diffing against live state, archive inspection, safe staging extraction, and selective/full subsystem restoration with automated pre-restore safety snapshots.
 - Off-host mirroring is supported via `scripts/pull-pve-backup.ps1` to the local workstation with gitignore protection.
+
+## 2026-09-01 — Contiguous Static IP Consolidation
+
+**Status:** ACTIVE
+
+Standardize all homelab infrastructure onto a clean, sequential static IP scheme:
+- Host: `192.168.1.30`
+- CT 100 (`rss-leads-discord`): `192.168.1.31`
+- CT 101 (`hermes-agent`): `192.168.1.32`
+- CT 102 (`invictinefeed`): `192.168.1.33`
+- CT 103 (`minecraft`): `192.168.1.34`
+- CT 104 (`homepage`): `192.168.1.35`
+- CT 105 (`pihole`): `192.168.1.36`
+- CT 106 (`homeassistant`): `192.168.1.37`
+- 3D Printer: `192.168.1.18`
+
+## 2026-09-01 — Unified Telemetry API & Startpage Overlay
+
+**Status:** ACTIVE
+
+Run a Python 3 daemon (`invictine-telemetry.service`) inside CT 104 on port 8000, reverse-proxied via Nginx at `/api/telemetry/`.
+- Polls Moonraker, Pi-hole v6, FreshRSS, Proxmox VE (via dedicated read-only audit token `dashboard-ro@pve!telemetry`), and Minecraft with in-memory 5s TTL caching and CORS.
+- Proxies Moonraker MJPEG stream at `/webcam/` and HTML5 viewer at `/printer-camera/`.
+- Inject a telemetry overlay into Homepage via `custom.js` and `custom.css` adhering to brand tokens.
+- Homepage container requires `CAP_NET_RAW` capability for accurate ICMP status pings.
+
+## 2026-09-01 — Dedicated Home Assistant Container (CT 106)
+
+**Status:** ACTIVE
+
+Deploy Home Assistant in an unprivileged Debian 12 LXC container (CT 106) using Docker Compose with `host` network mode (`ghcr.io/home-assistant/home-assistant:stable`).
+- Host network mode enables native local discovery (mDNS, UPnP, SSDP).
+- Persistent state lives at `/opt/homeassistant/config`. Accessible at `http://192.168.1.37:8123/`.
+
