@@ -66,4 +66,14 @@ Use CT 105 at `192.168.1.74` as a dedicated protected Pi-hole guest, with Cloudf
 
 **Status:** LOCKED SAFETY CONSTRAINT
 
-No backup or replication schedule exists. A single CT 103 manual backup does not protect the rest of the environment. Before destructive, migration, storage, or high-risk configuration work, create and verify backups proportional to the affected scope.
+Host configuration backups are now automated daily. A single CT 103 manual backup does not protect other guest root filesystems; before destructive, migration, storage, or high-risk configuration work, verify relevant backups.
+
+## 2026-09-01 — Automated Proxmox Host Configuration Backup & Restore
+
+**Status:** ACTIVE
+
+Automate host configuration backups on a daily systemd timer (`pve-config-backup.timer`, 03:00 IST) using `/usr/local/sbin/pve-config-backup`.
+- Atomically captures `/var/lib/pve-cluster/config.db` (SQLite `VACUUM INTO`), `/etc/pve` (all CT/VM definitions, `storage.cfg`, `datacenter.cfg`, `user.cfg`, certificates), networking (`/etc/network/interfaces*`), custom systemd units (including `wol-enp4s0.service`), crontabs, storage/boot, security, and metadata into `/var/backups/pve-config/`.
+- Enforces a 30-day retention policy while retaining at least 7 archives.
+- Maintains `/usr/local/sbin/pve-config-restore` supporting diffing against live state, archive inspection, safe staging extraction, and selective/full subsystem restoration with automated pre-restore safety snapshots.
+- Off-host mirroring is supported via `scripts/pull-pve-backup.ps1` to the local workstation with gitignore protection.

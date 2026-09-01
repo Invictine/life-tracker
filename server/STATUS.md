@@ -43,10 +43,12 @@ TCP `192.168.1.72:25565` was reachable.
 
 ## Backups and replication
 
-- No configured Proxmox backup jobs.
-- No configured replication jobs.
-- One manual backup exists for CT 103: `vzdump-lxc-103-2026_08_24-13_18_45.tar.zst` (about 906 MB) with its log.
-- Other guests do not have a backup recorded in the checked local dump directory.
+- Automated host configuration backup is active via `pve-config-backup.timer` (daily at 03:00 IST, `Persistent=true`).
+- Captured assets: `/var/lib/pve-cluster/config.db` (atomic SQLite vacuum), `/etc/pve` (all container/VM definitions, storage configs, certificates), `/etc/network/interfaces*`, custom systemd units (including `wol-enp4s0.service`), crontabs, storage/boot configs, and security files into `/var/backups/pve-config/`.
+- Retention policy: 30 days retention with guaranteed minimum 7 archives.
+- Restore utility: `/usr/local/sbin/pve-config-restore` (supports `list`, `inspect`, `diff`, `extract`, and selective/full `restore` with automatic pre-restore safety snapshots).
+- Workstation off-host pull script: `scripts/pull-pve-backup.ps1` (downloads to local `backups/` directory, protected by `.gitignore`).
+- Guest disk image backups: No automated `vzdump` cluster jobs configured; one manual CT 103 backup exists (`vzdump-lxc-103-2026_08_24-13_18_45.tar.zst`).
 
 ## Firewall
 

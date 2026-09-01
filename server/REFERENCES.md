@@ -88,3 +88,30 @@ Never print their values. Inspect variable names only, with values redacted, whe
 ## Change validation baseline
 
 After authorized work, verify guest inventory, cluster state, failed units, affected workload state, relevant listeners, recent logs, and the user-facing endpoint. For networking, additionally confirm ports 22 and 8006 are still reachable from the management client.
+
+## Host configuration backup and restore
+
+```bash
+# Check timer and scheduled execution
+systemctl status pve-config-backup.timer --no-pager
+systemctl list-timers | grep pve-config
+
+# Run manual backup
+/usr/local/sbin/pve-config-backup
+
+# List and inspect backups
+pve-config-restore list
+pve-config-restore inspect latest
+
+# Diff backup against live host
+pve-config-restore diff latest [network|pve|systemd|cron|all]
+
+# Safe staging extraction
+pve-config-restore extract latest /tmp/stage
+
+# Restore subsystem (creates pre-restore safety snapshot automatically)
+pve-config-restore restore latest --component=[pve|network|systemd|cron|all]
+
+# Off-host pull from Windows workstation
+.\scripts\pull-pve-backup.ps1
+```

@@ -5,7 +5,7 @@ Last updated: 2026-09-01 (Asia/Kolkata)
 ## High-risk / safety
 
 - **Understand `vmbr1` / `enp7s0`.** The bridge config references an interface that is not visible. Do not reload or edit networking until this is resolved and an out-of-band recovery path exists.
-- **Establish backups.** There are no scheduled backup or replication jobs. Only a manual CT 103 backup is present; create and verify backups for other critical guests before risky work.
+- **Establish backups.** Host configuration backup and restore is active via `pve-config-backup.timer` and `pve-config-restore`. Full guest container disk image backups (`vzdump`) remain unscheduled; decide if scheduled weekly container backups to `/var/lib/vz/dump` are needed.
 - **Identify the Realtek DKMS requirement.** `dkms.service` fails on `realtek-r8125/9.016.01` while the active management NIC uses `r8169`. Do not force-install or remove the module without determining the intended hardware and planning for possible network loss.
 - **Verify BIOS power recovery locally.** Linux cannot read the required ASUS firmware attributes. Confirm Restore AC Power Loss = Power On, Power On By PCI-E = Enabled, and ErP Ready = Disabled.
 
