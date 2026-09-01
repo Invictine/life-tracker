@@ -1,6 +1,6 @@
 # Server Status
 
-Last live verification: **2026-09-01 19:05–19:09 IST**
+Last live verification: **2026-09-01 19:05–19:12 IST**
 
 ## Current state
 
@@ -26,7 +26,7 @@ Last live verification: **2026-09-01 19:05–19:09 IST**
 | CT 102 | `freshrss`, `rss-leads-ai-filter`, and `rss-leads-mass-apply` containers are up. Scam-check timer runs every 30 seconds. No failed systemd units. |
 | CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. The same five generic Debian-in-LXC units as CT 100 are failed. |
 | CT 104 | Homepage container healthy; Nginx, Avahi, and Docker active; no failed systemd units. |
-| CT 105 | Pi-hole FTL active; DNS on TCP/UDP 53 and dashboard on HTTP/HTTPS 80/443 are listening. Three generic Debian-in-LXC units are failed: `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`; Pi-hole components are not among them. Deployment validation was still finishing when this snapshot was written. |
+| CT 105 | Pi-hole installation complete. FTL active; DNS forwarding and blocking verified; 78,609 blocking domains loaded; dashboard HTTP/HTTPS verified. Three generic Debian-in-LXC units are failed: `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`; Pi-hole components are not among them. Router/client DNS was not changed, so filtering is not network-wide yet. |
 
 ## User-facing checks
 
