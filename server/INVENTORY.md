@@ -150,7 +150,9 @@ Lead-processing architecture:
 - Dedicated Pi-hole DNS sinkhole at `192.168.1.74`
 - DNS listeners: TCP and UDP port 53
 - Dashboard listeners: HTTP 80 and HTTPS 443
-- Pi-hole FTL service active during 2026-09-01 deployment verification
-- Unattended configuration selected Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no DHCP service
-- Dashboard: `http://192.168.1.74/admin/`
-- Router/client DNS cutover and final blocking validation should be checked in current status before assuming network-wide use
+- Pi-hole installation and verification completed 2026-09-01
+- Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no DHCP service
+- DNS forwarding and blocking verified; 78,609 blocking domains loaded
+- Dashboard: `http://192.168.1.74/admin/` (HTTP and HTTPS verified)
+- Router/client DNS was not changed during deployment; network-wide filtering is not active until LAN DNS is pointed to `192.168.1.74`
+- Root-only admin credential file: `/root/.pihole-admin-password` inside CT 105; never read, print, or persist its value
