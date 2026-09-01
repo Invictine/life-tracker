@@ -52,7 +52,7 @@ Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket o
 
 ## 2026-09-01 — Dedicated Pi-hole LXC
 
-**Status:** ACTIVE, deployment validation in progress at snapshot time
+**Status:** ACTIVE
 
 Use CT 105 at `192.168.1.74` as a dedicated protected Pi-hole guest, with Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no Pi-hole DHCP service.
 
