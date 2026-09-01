@@ -81,6 +81,7 @@ Run `pct exec <id> -- systemctl --failed --no-pager` for the guest being inspect
 
 - `/opt/rss-leads-stack/.env`
 - `/etc/rss-leads-discord-notifier.env`
+- CT 105: `/root/.pihole-admin-password`
 
 Never print their values. Inspect variable names only, with values redacted, when absolutely necessary.
 
