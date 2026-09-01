@@ -27,7 +27,7 @@ This folder is the durable operating context for the Proxmox host named `invicti
 3. Before networking, firewall, storage, boot, kernel, DKMS, cluster, or guest-resource changes, explain impact and establish rollback. Preserve an out-of-band recovery path for networking.
 4. Before stopping or restarting a guest/workload, confirm scope and inspect active tasks and service state.
 5. There are no scheduled backup or replication jobs. Only one manual CT 103 backup was present on 2026-09-01; arrange and verify backups before destructive or migration work.
-6. Never read or print `/opt/rss-leads-stack/.env` or `/etc/rss-leads-discord-notifier.env`. If needed, inspect variable names only and redact values.
+6. Never read or print `/opt/rss-leads-stack/.env`, `/etc/rss-leads-discord-notifier.env`, or CT 105's root-only `/root/.pihole-admin-password`. If needed, inspect environment variable names only and redact values.
 7. Use `Asia/Kolkata` for schedules and timestamps.
 8. Verify the SSH host key before trusting a new or changed key.
 
