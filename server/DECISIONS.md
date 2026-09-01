@@ -1,0 +1,69 @@
+# Server Decisions
+
+Last updated: 2026-09-01 (Asia/Kolkata)
+
+## 2026-07-30 — Single-node Proxmox architecture
+
+**Status:** ACTIVE
+
+Run the home server as one Proxmox node with isolated unprivileged LXCs and no QEMU VMs. `corosync` being inactive is expected. Docker belongs inside specifically configured guests rather than on the host.
+
+## 2026-07-30 — Protect management networking
+
+**Status:** LOCKED SAFETY CONSTRAINT
+
+`vmbr0` on `enp4s0` is the management path. The unexplained `vmbr1` → `enp7s0` mapping must not be reloaded or edited until the missing interface is understood and out-of-band recovery is available.
+
+## 2026-08-03 — Keep Wake-on-LAN persistent
+
+**Status:** ACTIVE
+
+Enable magic-packet Wake-on-LAN for `enp4s0` with a systemd oneshot service. Mains-outage recovery remains a local BIOS concern: Restore AC Power Loss should be Power On; Power On By PCI-E should be enabled; ErP should remain disabled.
+
+## 2026-08-03 — Isolate Hermes in CT 101
+
+**Status:** ACTIVE
+
+Run Hermes Agent inside Docker within CT 101, keep its state in the `hermes-data` volume, pin the official image digest, publish no LAN ports, and deny unknown messaging users by default.
+
+## 2026-08-03 — FreshRSS is the leads system of record
+
+**Status:** ACTIVE
+
+Keep the Invictine Leads stack in CT 102 with FreshRSS as canonical storage and Docker Compose v1 as the deployment interface. The deterministic buyer-intent gate runs before AI scoring. Reddit leads must complete the public-account scam review before appearing in the public priority feed; risk logic may lower/cap priority but never raise it.
+
+## 2026-08-03 — Five-minute Reddit feed cadence
+
+**Status:** ACTIVE
+
+Use a 300-second combined Reddit feed TTL and cap FreshRSS SimplePie `cache_duration_max` at 300 seconds so Reddit's one-hour cache header cannot override the desired cadence.
+
+## 2026-08-24 — On-demand Minecraft through LazyMC and Playit
+
+**Status:** ACTIVE
+
+Keep LazyMC listening on 25565 and stop Paper after five idle minutes. Use Playit for public reachability because the Airtel WAN is behind CGNAT. Keep whitelist plus AuthMe controls for offline-mode access.
+
+## 2026-08-24 — Credentialless home dashboard
+
+**Status:** ACTIVE
+
+Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket or store service credentials in the dashboard. Cloudflare Tunnel/Access remains deferred; `server.invictine.com` is only the intended future hostname.
+
+## 2026-09-01 — Dedicated Pi-hole LXC
+
+**Status:** ACTIVE, deployment validation in progress at snapshot time
+
+Use CT 105 at `192.168.1.74` as a dedicated protected Pi-hole guest, with Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no Pi-hole DHCP service.
+
+## Product UI — Invictine Leads brand kit
+
+**Status:** LOCKED UNTIL EXPLICIT DESIGN CHANGE
+
+`C:\Users\aniru\Documents\Server\brand\README.md` and its tokens are the cross-platform source of truth. Maintain a compact, calm, human-built workbench/funnel aesthetic and avoid generic AI-product decoration.
+
+## Risky changes require verified backups
+
+**Status:** LOCKED SAFETY CONSTRAINT
+
+No backup or replication schedule exists. A single CT 103 manual backup does not protect the rest of the environment. Before destructive, migration, storage, or high-risk configuration work, create and verify backups proportional to the affected scope.
