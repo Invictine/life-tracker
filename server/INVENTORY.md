@@ -1,6 +1,6 @@
 # Server Inventory
 
-Last updated: 2026-09-01 (Asia/Kolkata)
+Last updated: 2026-09-02 (Asia/Kolkata)
 
 ## Proxmox host
 
@@ -76,6 +76,7 @@ CT 100 has a static IP address `192.168.1.31` configured (migrated from initial 
 - Convenience wrapper `/usr/local/bin/hermes`; `/usr/bin/hermes` links to it for the reduced `pct enter` PATH
 - Gateway and s6 supervision were verified; config schema version 33 validated
 - OpenAI Codex OAuth was logged in with `gpt-5.6-terra` selected; a one-shot request returned `HERMES_OK` on 2026-08-03
+- Custom `rss_leads_mcp.py` MCP server is integrated under `/opt/data/mcp/`
 - No messaging platform is configured; unknown messaging users are denied by default
 
 ## CT 102 — Invictine Leads / FreshRSS
@@ -142,8 +143,9 @@ Lead-processing architecture:
 - Friendly mDNS/Nginx URL: `http://invictine.local/` (`http://192.168.1.35/`)
 - Intended future hostname: `server.invictine.com`
 - Avahi advertises `invictine.local`; Nginx port 80 proxies to `127.0.0.1:3000`
-- Homepage container runs with `PUID=0`, `PGID=0`, `cap_add: [NET_RAW]` for unprivileged ICMP ping checks
+- Homepage container runs with `PUID=0`, `PGID=0`, `cap_add: [NET_RAW]` so unprivileged ICMP checks do not show false offline badges
 - Telemetry daemon: Python 3 daemon `/opt/telemetry/telemetry_daemon.py` managed by `invictine-telemetry.service` on port 8000
+- Responsive two-column telemetry overlay is injected through `custom.js` and styled with `custom.css` using the Invictine brand kit
 - Nginx reverse proxies:
   - Telemetry API: `/api/telemetry/` (CORS enabled, 5s TTL cache)
   - 3D printer webcam stream: `/webcam/` (proxied from Moonraker `192.168.1.18`)
@@ -155,6 +157,7 @@ Lead-processing architecture:
 ## CT 105 — Pi-hole
 
 - Dedicated Pi-hole DNS sinkhole at `192.168.1.36`
+- Proxmox protection flag is enabled for CT 105
 - DNS listeners: TCP and UDP port 53
 - Dashboard listeners: HTTP 80 and HTTPS 443
 - Pi-hole installation and verification completed 2026-09-01

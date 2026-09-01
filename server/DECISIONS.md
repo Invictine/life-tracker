@@ -1,6 +1,19 @@
 # Server Decisions
 
-Last updated: 2026-09-01 (Asia/Kolkata)
+Last updated: 2026-09-02 (Asia/Kolkata)
+
+## 2026-09-02 — Synchronize every server update with the dashboard
+
+**Status:** LOCKED OPERATIONAL REQUIREMENT
+
+Any server update that changes dashboard-visible state must update the relevant
+Homepage/Telemetry representation in CT 104 as part of the same change. The
+completion check is the authoritative server state plus the rendered dashboard,
+including current labels, values, links, monitors, and health indicators.
+
+When an update is not genuinely dashboard-visible, record that rationale rather
+than creating unrelated dashboard UI. Use the canonical Invictine brand kit for
+any new dashboard representation.
 
 ## 2026-07-30 — Single-node Proxmox architecture
 
@@ -25,6 +38,9 @@ Enable magic-packet Wake-on-LAN for `enp4s0` with a systemd oneshot service. Mai
 **Status:** ACTIVE
 
 Run Hermes Agent inside Docker within CT 101, keep its state in the `hermes-data` volume, pin the official image digest, publish no LAN ports, and deny unknown messaging users by default.
+
+The custom `rss_leads_mcp.py` server is kept in the persistent `/opt/data/mcp/`
+path so Hermes can use the leads context without exposing additional LAN ports.
 
 ## 2026-08-03 — FreshRSS is the leads system of record
 
@@ -101,7 +117,7 @@ Run a Python 3 daemon (`invictine-telemetry.service`) inside CT 104 on port 8000
 - Polls Moonraker, Pi-hole v6, FreshRSS, Proxmox VE (via dedicated read-only audit token `dashboard-ro@pve!telemetry`), and Minecraft with in-memory 5s TTL caching and CORS.
 - Proxies Moonraker MJPEG stream at `/webcam/` and HTML5 viewer at `/printer-camera/`.
 - Inject a telemetry overlay into Homepage via `custom.js` and `custom.css` adhering to brand tokens.
-- Homepage container requires `CAP_NET_RAW` capability for accurate ICMP status pings.
+- The responsive overlay uses a two-column workbench layout, and the Homepage container requires `CAP_NET_RAW` capability for accurate ICMP status pings.
 
 ## 2026-09-01 — Dedicated Home Assistant Container (CT 106)
 

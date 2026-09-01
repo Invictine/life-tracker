@@ -1,6 +1,6 @@
 # Server Status
 
-Last live verification: **2026-09-02 05:00 IST**
+Last live verification: **2026-09-02 05:21 IST**
 
 ## Current state
 
@@ -12,6 +12,7 @@ Last live verification: **2026-09-02 05:00 IST**
 - `local-lvm`: 349.17 GiB thin pool, 5.02% data and 0.64% metadata used.
 - NVMe SMART overall-health result: `PASSED`.
 - Host management link: 1 Gbit/s, full duplex, link detected; Wake-on-LAN remains `g` (magic packet).
+- Live host check at 05:21 IST: uptime 8 days 16 hours, load average `0.21 / 0.21 / 0.19`.
 
 ## Host health finding
 
@@ -47,6 +48,7 @@ All verified functional from the management PC on 2026-09-02:
 ## Backups and replication
 
 - Automated host configuration backup is active via `pve-config-backup.timer` (daily at 03:00 IST, `Persistent=true`).
+- The latest backup completed successfully at 03:09 IST on 2026-09-02; the next scheduled run is 2026-09-03 at 03:08 IST.
 - Captured assets: `/var/lib/pve-cluster/config.db` (atomic SQLite vacuum), `/etc/pve` (all container/VM definitions, storage configs, certificates), `/etc/network/interfaces*`, custom systemd units (including `wol-enp4s0.service`), crontabs, storage/boot configs, and security files into `/var/backups/pve-config/`.
 - Retention policy: 30 days retention with guaranteed minimum 7 archives.
 - Restore utility: `/usr/local/sbin/pve-config-restore` (supports `list`, `inspect`, `diff`, `extract`, and selective/full `restore` with automatic pre-restore safety snapshots).

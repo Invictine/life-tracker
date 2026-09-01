@@ -1,19 +1,19 @@
 # Server References
 
-Last updated: 2026-09-01 (Asia/Kolkata)
+Last updated: 2026-09-02 (Asia/Kolkata)
 
 ## Access and endpoints
 
 | Service | Address |
 |---|---|
-| Proxmox | `https://192.168.1.69:8006` |
+| Proxmox | `https://192.168.1.30:8006` |
 | SSH | `ssh invictineserver` |
-| FreshRSS | `http://192.168.1.70/` |
-| Mass Apply | `http://192.168.1.70:8092/` |
+| FreshRSS | `http://192.168.1.33/` |
+| Mass Apply | `http://192.168.1.33:8092/` |
 | Minecraft | `drake-spinal.tun.ply.gg` |
 | Homepage | `http://invictine.local/` |
-| Homepage fallback | `http://192.168.1.73:3000/` |
-| Pi-hole | `http://192.168.1.74/admin/` |
+| Homepage fallback | `http://192.168.1.35:3000/` |
+| Pi-hole | `http://192.168.1.36/admin/` |
 
 Expected SSH ED25519 fingerprint: `SHA256:cjBePBXRZXacsL9jX9pbwRnDT8FrOc2ma+ZQ/zmfi4E`.
 
