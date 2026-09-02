@@ -1,6 +1,6 @@
 # Server Status
 
-Last live verification: **2026-09-02 05:21 IST**
+Last live verification: **2026-09-02 05:31 IST**
 
 ## Current state
 
@@ -26,7 +26,7 @@ Last live verification: **2026-09-02 05:21 IST**
 | CT 101 | Docker active; `hermes-agent` container up; static address `192.168.1.32`; no failed systemd units. |
 | CT 102 | `freshrss`, `rss-leads-ai-filter`, and `rss-leads-mass-apply` containers are up. Scam-check timer runs every 30 seconds. Static address `192.168.1.33`. No failed systemd units. |
 | CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. Static address `192.168.1.34`. The same five generic Debian-in-LXC units as CT 100 are failed. |
-| CT 104 | Homepage container healthy; Nginx, Avahi, Docker, and `invictine-telemetry.service` active; static address `192.168.1.35`; no failed systemd units. |
+| CT 104 | Homepage container healthy; Nginx, Avahi, Docker, and `invictine-telemetry.service` active; static address `192.168.1.35`; no failed systemd units. The custom telemetry UI was repaired on 2026-09-02: refreshes no longer overlap, loading/error states are explicit, dense stats no longer wrap incorrectly, and desktop/mobile rendered views were verified. |
 | CT 105 | Pi-hole installation complete. FTL active; DNS forwarding and blocking verified; 78,609 blocking domains loaded; dashboard HTTP/HTTPS verified. Static address `192.168.1.36`. Three generic Debian-in-LXC units are failed: `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`; Pi-hole components are not among them. Router/client DNS was not changed, so filtering is not network-wide yet. |
 | CT 106 | Home Assistant container active via Docker Compose (`host` network mode); persistent storage at `/opt/homeassistant/config`; static address `192.168.1.37`. No failed systemd units. |
 
