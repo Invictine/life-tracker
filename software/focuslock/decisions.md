@@ -30,3 +30,16 @@
 **Status:** ACTIVE
 
 **Decision:** Track credits in seconds for sub-minute accuracy, expose to user in minutes. Default ratio is 4:1 (60 min work = 15 min scroll) plus a +5 min bonus per completed task. Daily usage stats reset at midnight, but earned balance is retained to reward accumulated productivity.
+
+---
+
+## 2026-09-02 — Material 3 Pixel Style UI (Material You Expressive)
+
+**Status:** ACTIVE
+
+**Decision:** Adopt native Google Pixel Material You (Material 3 Expressive) design language across all activities and composables.
+
+**Reason:**
+- Supports Android 12+ dynamic theming (`dynamicDarkColorScheme` / Monet) so the app automatically harmonizes with the user's Pixel wallpaper and system palette.
+- Replaced rigid bordered cards with tonal surface elevation hierarchy (`surfaceContainer`, `surfaceContainerHigh`, `surfaceContainerHighest`).
+- Implemented signature Pixel elements: At-a-Glance date/status header, large circular progress dial, generous pill-shaped buttons (`RoundedCornerShape(28.dp)`), filter chips, and a minimalist focus-mode lockout screen.

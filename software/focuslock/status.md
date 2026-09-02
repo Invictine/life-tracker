@@ -12,8 +12,9 @@
 - [x] Credit Bank & Preferences DataStore (`CreditBankRepository` + `SettingsRepository`).
 - [x] Fullscreen Blocker UI (`BlockerActivity` + `BlockerScreen`) with OLED dark mode, direct TickTick launch, and sync/verify.
 - [x] Material 3 Dashboard, App Selector, and Settings screens.
+- [x] Refined to Google Pixel Material 3 (Material You / M3 Expressive) design: dynamic color theming, At-a-Glance headers, circular progress dial, pill buttons, tonal surfaces.
 - [x] Unit tests for duration parsing and ratio math (`testDebugUnitTest` passed).
-- [x] Production debug APK compiled and verified at `app/build/outputs/apk/debug/app-debug.apk` (20.2 MB).
+- [x] Production debug APK compiled and verified at `app/build/outputs/apk/debug/app-debug.apk` (20.3 MB).
 
 ## Next Steps / Optional Enhancements
 - [ ] Connect Android device via ADB to test real-world on-device interaction.
