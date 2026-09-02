@@ -18,6 +18,7 @@
 - [x] Pushed and installed directly to connected device (Nothing Phone (1) `P222C6000273`) via ADB.
 - [x] Pre-configured and enabled permissions via ADB: Accessibility Service, Notification Listener, Usage Stats, and System Alert Window.
 - [x] Implemented TickTick OAuth 2.0 authorization prompt (`OAuthCallbackActivity` + `focuslock://oauth/callback`).
+- [x] Verified and preloaded TickTick Personal Access Token (`tp_...`) accessing 9 live user projects.
 - [x] Redesigned picker into AppBlock-style dual-tab layout (`Applications` and `Websites`) with quick preset buttons ("Block All Social", "Block All Video").
 - [x] Real-time browser URL inspection via Accessibility Service for Chrome, Brave, Samsung Internet, Firefox, Edge to block doomscroll websites.
-- [x] Updated APK compiled and streamed to device via ADB.
+- [x] Assembled updated APK: `scratch/focuslock-debug.apk` (20.3 MB).
