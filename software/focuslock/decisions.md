@@ -43,3 +43,27 @@
 - Supports Android 12+ dynamic theming (`dynamicDarkColorScheme` / Monet) so the app automatically harmonizes with the user's Pixel wallpaper and system palette.
 - Replaced rigid bordered cards with tonal surface elevation hierarchy (`surfaceContainer`, `surfaceContainerHigh`, `surfaceContainerHighest`).
 - Implemented signature Pixel elements: At-a-Glance date/status header, large circular progress dial, generous pill-shaped buttons (`RoundedCornerShape(28.dp)`), filter chips, and a minimalist focus-mode lockout screen.
+
+---
+
+## 2026-09-02 — AppBlock-Style Dual Picker with In-Browser Website Blocking
+
+**Status:** ACTIVE
+
+**Decision:** Separate restrictions into two distinct tabs: `Applications` and `Websites`, with quick batch presets ("Block All Social", "Block All Video"). Use the existing Accessibility Service to inspect the address bar of Android browsers (Chrome, Brave, Firefox, Edge, Samsung Internet) and enforce lockout on doomscroll domains.
+
+**Reason:**
+- Many users bypass app blocks by opening web versions of Instagram, YouTube, Reddit, or TikTok in mobile browsers.
+- Browser accessibility inspection detects domain navigation without needing a heavy local VPN or DNS proxy.
+
+---
+
+## 2026-09-02 — TickTick OAuth 2.0 Flow with Custom Scheme Callback
+
+**Status:** ACTIVE
+
+**Decision:** Implement OAuth 2.0 authorization code grant via deep-link scheme `focuslock://oauth/callback`.
+
+**Reason:**
+- Users can log in directly with a single tap, granting permissions without manually copying API tokens.
+- Securely exchanges code for access token and retrieves the user profile for display in settings.
