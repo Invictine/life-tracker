@@ -1,6 +1,6 @@
 # Server Status
 
-Last live verification: **2026-09-02 05:43 IST**
+Last live verification: **2026-09-02 06:28 IST**
 
 ## Current state
 
@@ -25,8 +25,8 @@ Last live verification: **2026-09-02 05:43 IST**
 | CT 100 | Notifier timer active; oneshot service inactive between runs as expected. Static address `192.168.1.31`. Five generic Debian-in-LXC units are failed: `logrotate`, `man-db`, `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`. |
 | CT 101 | Docker active; `hermes-agent` container up; static address `192.168.1.32`; no failed systemd units. |
 | CT 102 | `freshrss`, `rss-leads-ai-filter`, and `rss-leads-mass-apply` containers are up. Scam-check timer runs every 30 seconds. Static address `192.168.1.33`. No failed systemd units. |
-| CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. Static address `192.168.1.34`. The same five generic Debian-in-LXC units as CT 100 are failed. |
-| CT 104 | Homepage container healthy; Nginx, Avahi, Docker, and `invictine-telemetry.service` active; static address `192.168.1.35`; no failed systemd units. The custom telemetry UI was upgraded on 2026-09-02 with non-overlapping refreshes, explicit loading/error states, a two-by-two Pi-hole/Proxmox/printer/Minecraft graphic-stat matrix, a dedicated right-side live printer feed, service-category tabs, and service icons. Desktop, mobile, tab filtering, and live telemetry rendering were verified. |
+| CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. Public address `drake-spinal.tun.ply.gg`. At 06:25 IST the gateway reported Paper sleeping, 0 players online, and version 26.2. Static address `192.168.1.34`. The same five generic Debian-in-LXC units as CT 100 are failed. |
+| CT 104 | Homepage container healthy; Nginx, Avahi, Docker, and `invictine-telemetry.service` active; static address `192.168.1.35`; no failed systemd units. The custom telemetry UI was upgraded on 2026-09-02 with a two-by-two graphic-stat matrix and right-side printer feed. The printer panel now prioritizes a same-origin Moonraker model thumbnail, model name, progress, ETA, elapsed time, and layer; the Minecraft panel shows the Playit address, actual Paper/LazyMC state, player count, version, latency, and copy/share invite actions. Desktop rendering and live telemetry were verified. |
 | CT 105 | Pi-hole installation complete. FTL active; DNS forwarding and blocking verified; 78,609 blocking domains loaded; dashboard HTTP/HTTPS verified. Static address `192.168.1.36`. Three generic Debian-in-LXC units are failed: `systemd-logind`, `systemd-networkd`, and `systemd-networkd.socket`; Pi-hole components are not among them. Router/client DNS was not changed, so filtering is not network-wide yet. |
 | CT 106 | Home Assistant container active via Docker Compose (`host` network mode); persistent storage at `/opt/homeassistant/config`; static address `192.168.1.37`. No failed systemd units. |
 
