@@ -15,7 +15,6 @@
 - [x] Refined to Google Pixel Material 3 (Material You / M3 Expressive) design: dynamic color theming, At-a-Glance headers, circular progress dial, pill buttons, tonal surfaces.
 - [x] Unit tests for duration parsing and ratio math (`testDebugUnitTest` passed).
 - [x] Production debug APK compiled and verified at `app/build/outputs/apk/debug/app-debug.apk` (20.3 MB).
-
-## Next Steps / Optional Enhancements
-- [ ] Connect Android device via ADB to test real-world on-device interaction.
+- [x] Pushed and installed directly to connected device (Nothing Phone (1) `P222C6000273`) via ADB.
+- [x] Pre-configured and enabled permissions via ADB: Accessibility Service, Notification Listener, Usage Stats, and System Alert Window.
 - [ ] Add YouTube Shorts specific UI container filter.
