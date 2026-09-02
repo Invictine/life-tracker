@@ -1,0 +1,22 @@
+﻿# CAD and 3D printing binary outputs
+*.stl
+*.3mf
+*.step
+*.stp
+*.obj
+*.gcode
+
+# Build outputs & executables
+*.apk
+*.aab
+*.exe
+*.dll
+*.bin
+
+# Third-party vendor repositories
+**/gridfinity-rebuilt-openscad/
+
+# Logs and system caches
+*.log
+.DS_Store
+Thumbs.db
