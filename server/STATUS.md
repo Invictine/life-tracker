@@ -1,6 +1,6 @@
 # Server Status
 
-Last live verification: **2026-09-02 06:28 IST**
+Last live verification: **2026-09-03 (Asia/Kolkata)**
 
 ## Current state
 
@@ -26,7 +26,7 @@ Last live verification: **2026-09-02 06:28 IST**
 | CT 101 | Docker active; `hermes-agent` container up; static address `192.168.1.32`; no failed systemd units. |
 | CT 102 | `freshrss`, `rss-leads-ai-filter`, and `rss-leads-mass-apply` containers are up. Scam-check timer runs every 30 seconds. Static address `192.168.1.33`. No failed systemd units. |
 | CT 103 | `minecraft` and `playit` services active; LazyMC listening on TCP 25565. Public address `drake-spinal.tun.ply.gg`. At 06:25 IST the gateway reported Paper sleeping, 0 players online, and version 26.2. Static address `192.168.1.34`. The same five generic Debian-in-LXC units as CT 100 are failed. |
-| CT 104 | Homepage container healthy; Nginx, Avahi, Docker, and `invictine-telemetry.service` active; static address `192.168.1.35`; no failed systemd units. The custom telemetry UI was upgraded on 2026-09-02 with a two-by-two graphic-stat matrix and right-side printer feed. The printer panel now prioritizes a same-origin Moonraker model thumbnail, model name, progress, ETA, elapsed time, and layer; the Minecraft panel shows the Playit address, actual Paper/LazyMC state, player count, version, latency, and copy/share invite actions. Desktop rendering and live telemetry were verified. |
+| CT 104 | Nginx serves the lightweight telemetry workbench directly at `invictine.local`; Homepage remains healthy and available as the port-3000 fallback. Avahi, Docker, and `invictine-telemetry.service` are active; static address `192.168.1.35`; no failed systemd units. On 2026-09-03 the friendly URL was changed to bypass Homepage's large client bootstrap, use cached local CSS/JS, and defer the printer camera until the initial dashboard has rendered. Chrome `DOMContentLoaded` improved from about 614 ms to 88 ms; the prior custom workbench did not become useful until roughly 1.7 s. The printer and Minecraft detail panels remain live. |
 | CT 105 | Pi-hole active with 704,701 unique blocking domains loaded (HaGeZi Multi PRO, OISD Big, Firebog AdGuard/EasyPrivacy, Anudeep Adservers, d3ward suite). FTL optimized with dual upstream parallel queries (`all-servers`), cache size 20,000, 300s min TTL, and 3600s optimistic caching. Avahi mDNS active (`invictinepihole.local`). Note: Client devices must point exclusively to `192.168.1.36` (disabling router IPv6 DNS and browser DoH) to prevent ad-traffic leaks. |
 | CT 106 | Home Assistant container active via Docker Compose (`host` network mode); persistent storage at `/opt/homeassistant/config`; static address `192.168.1.37`. No failed systemd units. |
 

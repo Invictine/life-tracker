@@ -1,6 +1,6 @@
 # Server Decisions
 
-Last updated: 2026-09-02 (Asia/Kolkata)
+Last updated: 2026-09-03 (Asia/Kolkata)
 
 ## 2026-09-02 — Synchronize every server update with the dashboard
 
@@ -14,6 +14,17 @@ including current labels, values, links, monitors, and health indicators.
 When an update is not genuinely dashboard-visible, record that rationale rather
 than creating unrelated dashboard UI. Use the canonical Invictine brand kit for
 any new dashboard representation.
+
+## 2026-09-03 — Serve the telemetry workbench directly at the friendly URL
+
+**Status:** ACTIVE
+
+`http://invictine.local/` is served by Nginx as a lightweight static shell using
+the existing Invictine `custom.css` and `custom.js`. This removes Homepage's
+large client bootstrap from the critical rendering path. The printer camera is
+deferred until the initial workbench is visible, and third-party web fonts are
+not required for first render. Homepage remains running and reachable at
+`http://192.168.1.35:3000/` as a fallback and rollback path.
 
 ## 2026-07-30 — Single-node Proxmox architecture
 
