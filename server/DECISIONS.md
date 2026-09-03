@@ -137,6 +137,7 @@ Overhauled the Invictine Leads Android client (`com.invictine.leads`) for instan
 - **Convex HTTP Router**: `GET /workspace` and `POST /workspace` updated in `ct102/rss-leads-stack/convex/http.ts` to allow direct account access without premature 401 Unauthorized rejections during onboarding.
 - **Animated Material 3 Onboarding**: 3-step setup with animated transitions, spring progress bar, interactive role preset chips with instant toggle, portfolio/pitch bento card with auto-fill templates, and visual priority alert selector.
 - **Fluid Motion Design**: Spring-backed swipe cards (`SwipeDeck`), tactile button press interactions, and bounded container layouts preventing Compose infinite measurement exceptions.
+- **Cold Launch Stability Fix**: Removed `verticalScroll` from `ModernAuthScreen` and migrated `OnboardingFlow` to `Crossfade`. This prevents Clerk's internal `AuthView` animations from measuring against unbounded constraints (`Constraints.Infinity`) which previously caused an immediate startup crash (`Size(870 x 2147483647) is out of range`).
 
 
 
