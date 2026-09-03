@@ -127,3 +127,13 @@ Deploy Home Assistant in an unprivileged Debian 12 LXC container (CT 106) using 
 - Host network mode enables native local discovery (mDNS, UPnP, SSDP).
 - Persistent state lives at `/opt/homeassistant/config`. Accessible at `http://192.168.1.37:8123/`.
 
+## 2026-09-03 — Convex Database Sync, Account-Based Funnel & Auth UX Overhaul
+
+**Status:** ACTIVE
+
+Migrate Invictine Leads Android client from local LAN dashboard polling (`192.168.1.33:8092`) to hosted Convex cloud database sync (`https://little-monitor-195.convex.site` & `.convex.cloud`).
+- Deployed public queries `leads:list`, `workspace:get`, and `workspace:save` mutations in Convex (`ct102/rss-leads-stack/convex/`), partitioning funnel stages, drafts, and onboarding profile settings strictly per authenticated Clerk user account (`ownerId: Clerk.user?.id`).
+- Added HTTP router routes (`GET /leads`, `GET /workspace`, `POST /workspace`) with CORS and Clerk JWT `sub` extraction.
+- Upgraded Android app with Material 3 Account Profile Sheet, Custom Tabs intent queries in `AndroidManifest.xml` with `androidx.browser:browser`, and account-based priority threshold filtering in the inbox funnel.
+
+
