@@ -157,8 +157,8 @@ Lead-processing architecture:
 ## CT 105 — Pi-hole
 
 - Dedicated Pi-hole DNS sinkhole at `192.168.1.36`
-- Friendly mDNS URL: `http://invictinepihole.local/` (Avahi daemon configured on CT 105)
-- Note: External Raspberry Pi at `192.168.1.71` also advertises `invictinepihole.local`; CT 105 falls back to `invictinepihole-2.local` while both are online
+- Friendly mDNS URL: `http://invictinepihole.local/` (Avahi daemon active on CT 105)
+- Legacy hardware note: Prior Raspberry Pi Zero 2 W (`192.168.1.71`) was unplugged/decommissioned on 2026-09-03; CT 105 holds `invictinepihole.local` exclusively
 - Proxmox protection flag is enabled for CT 105
 - DNS listeners: TCP and UDP port 53
 - Dashboard listeners: HTTP 80 and HTTPS 443; `webserver.domain` configured to `invictinepihole.local`
