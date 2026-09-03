@@ -1,18 +1,19 @@
 # Server Status
 
-Last live verification: **2026-09-03 (Asia/Kolkata)**
+Last live verification: **2026-09-04 (Asia/Kolkata)**
 
 ## Current state
 
 - Proxmox node `invictineserver` is online and single-node.
 - Version: Proxmox VE 9.0.11 on Debian 13 (`trixie`); running kernel `6.14.11-4-pve`.
-- CTs 100–106 are running. No QEMU VMs are configured.
+- CTs 100–109 are running. No QEMU VMs are configured. CT 108 (`n8n`) and CT 109 (`obsidian-sync`) were observed live; CT 108 has not yet been reconciled into the detailed inventory.
 - Proxmox services `pveproxy`, `pvedaemon`, `pvestatd`, and `pve-cluster` are active. `corosync` is inactive as expected for this single-node setup.
 - Root filesystem: 94 GiB usable, 25 GiB used (28%).
 - `local-lvm`: 349.17 GiB thin pool, 5.02% data and 0.64% metadata used.
 - NVMe SMART overall-health result: `PASSED`.
 - Host management link: 1 Gbit/s, full duplex, link detected; Wake-on-LAN remains `g` (magic packet).
 - Live host check at 05:21 IST: uptime 8 days 16 hours, load average `0.21 / 0.21 / 0.19`.
+- Remote-access staging (2026-09-04): Tailscale `1.102.3` is installed and `tailscaled` is enabled/active, but the host is awaiting Tailnet approval with DNS and subnet-route acceptance disabled. `cloudflared 2026.8.3` is installed; no tunnel has been enrolled or started, so no Cloudflare public route exists.
 
 ## Host health finding
 
@@ -29,6 +30,9 @@ Last live verification: **2026-09-03 (Asia/Kolkata)**
 | CT 104 | Nginx serves the lightweight telemetry workbench directly at `invictine.local`; Homepage remains healthy and available as the port-3000 fallback. Avahi, Docker, and `invictine-telemetry.service` are active; static address `192.168.1.35`; no failed systemd units. On 2026-09-03 the friendly URL was changed to bypass Homepage's large client bootstrap. The workbench now paints its last good telemetry snapshot immediately, refreshes live data in the background, retries transient offline results after one second, and self-hosts Inter plus JetBrains Mono to preserve the intended alignment. At the reported 1657×1298 viewport, Chrome reached `DOMContentLoaded` in about 113 ms and refreshed the full live telemetry payload in about 196 ms while cached values were already visible. The printer feed and Minecraft detail panel were rendered and live-verified. |
 | CT 105 | Pi-hole active with 704,701 unique blocking domains loaded (HaGeZi Multi PRO, OISD Big, Firebog AdGuard/EasyPrivacy, Anudeep Adservers, d3ward suite). FTL optimized with dual upstream parallel queries (`all-servers`), cache size 20,000, 300s min TTL, and 3600s optimistic caching. Avahi mDNS active (`invictinepihole.local`). Note: Client devices must point exclusively to `192.168.1.36` (disabling router IPv6 DNS and browser DoH) to prevent ad-traffic leaks. |
 | CT 106 | Home Assistant container active via Docker Compose (`host` network mode); persistent storage at `/opt/homeassistant/config`; static address `192.168.1.37`. No failed systemd units. |
+| CT 107 | Uptime Kuma is active in a dedicated protected, unprivileged Debian 12 LXC at `192.168.1.38:3001`. Docker runs the official `louislam/uptime-kuma:2` image with a persistent local volume and `unless-stopped` restart policy. First-run database and administrator setup is intentionally pending direct user entry; the LAN UI and Dashboard card were rendered-live-verified on 2026-09-04. |
+| CT 108 | n8n 2.38.2 is active in a dedicated protected, unprivileged Debian 12 LXC at `192.168.1.39:5678`. Docker Compose stores state in `/opt/n8n/n8n_data`; its server-side encryption key is root-readable only. No guest systemd units are failed. Initial owner-account setup is pending. |
+| CT 109 | `obsidian-sync` is active in a dedicated protected, unprivileged Debian 12 LXC at `192.168.1.40` (1 vCPU, 512 MiB RAM, 8 GB disk). Syncthing 1.30.0 runs as system user `obsidian`; the `life-tracker` folder (`/home/obsidian/life-tracker`, staggered 30-day versioning) completed its initial scan. `life-tracker-autocommit.timer` commits every 5 min and pushes best-effort. GUI stays on `127.0.0.1:8384` (SSH tunnel) until a password is set; device pairing and git remote auth remain pending user action. Three generic Debian-in-LXC units are failed (`systemd-logind`, `systemd-networkd`, `systemd-networkd.socket`), matching the known CT 100/103 pattern. |
 
 ## User-facing checks
 
@@ -44,6 +48,9 @@ All verified functional from the management PC on 2026-09-03:
 - 3D Printer Webcam proxy: `http://invictine.local/printer-camera/`
 - Pi-hole: `http://invictinepihole.local/admin/` (`http://192.168.1.36/admin/`)
 - Home Assistant: `http://192.168.1.37:8123/`
+- Uptime Kuma: `http://192.168.1.38:3001/` (initial setup pending)
+- n8n: `http://192.168.1.39:5678/` (initial setup pending)
+- Obsidian Sync: Syncthing node at `192.168.1.40` (GUI via SSH tunnel; device pairing pending)
 
 ## Backups and replication
 

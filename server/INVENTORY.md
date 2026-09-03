@@ -1,12 +1,13 @@
 # Server Inventory
 
-Last updated: 2026-09-02 (Asia/Kolkata)
+Last updated: 2026-09-04 (Asia/Kolkata)
 
 ## Proxmox host
 
 - Node/hostname: `invictineserver`
 - Platform: single-node Proxmox VE 9.0.11 on Debian 13 (`trixie`)
 - Kernel: `6.14.11-4-pve`
+- Remote connectivity: Tailscale `1.102.3` (`tailscaled` enabled; Tailnet authorization pending; DNS and subnet-route acceptance disabled) and `cloudflared 2026.8.3` installed from their official APT repositories. No Cloudflare Tunnel configuration, token, service, hostname, or public ingress is present.
 - Motherboard: ASUS PRIME A520M-K
 - CPU: AMD Ryzen 5 5600, 6 cores / 12 threads
 - RAM: 7.6 GiB
@@ -46,8 +47,12 @@ All are unprivileged Debian 12 LXCs with host-boot enabled.
 | 104 | `homepage` | 1 vCPU | 512 MiB / 256 MiB | 6 GB | `192.168.1.35/24` |
 | 105 | `pihole` | 1 vCPU | 512 MiB / 256 MiB | 8 GB | `192.168.1.36/24` |
 | 106 | `homeassistant` | 2 vCPU | 2 GiB / 512 MiB | 16 GB | `192.168.1.37/24` |
+| 107 | `uptime-kuma` | 1 vCPU | 768 MiB / 256 MiB | 8 GB | `192.168.1.38/24` |
+| 108 | `n8n` | 1 vCPU | 1024 MiB / 512 MiB | 12 GB | `192.168.1.39/24` |
+| 109 | `obsidian-sync` | 1 vCPU | 512 MiB / 512 MiB | 8 GB | `192.168.1.40/24` |
+| 108 | `n8n` | 1 vCPU | 1 GiB / 512 MiB | 12 GB | `192.168.1.39/24` |
 
-CTs 101, 102, 104, and 106 enable `nesting=1,keyctl=1` for Docker-in-LXC. CT 105 has Proxmox protection enabled.
+CTs 101, 102, 104, 106, and 108 enable `nesting=1,keyctl=1` for Docker-in-LXC. CTs 105, 107, 108, and 109 have Proxmox protection enabled. CT 109 runs native Syncthing (no Docker, no nesting required).
 
 ## CT 100 — Discord lead notifier
 
@@ -145,12 +150,12 @@ Lead-processing architecture:
 - Avahi advertises `invictine.local`; Nginx port 80 proxies to `127.0.0.1:3000`
 - Homepage container runs with `PUID=0`, `PGID=0`, `cap_add: [NET_RAW]` so unprivileged ICMP checks do not show false offline badges
 - Telemetry daemon: Python 3 daemon `/opt/telemetry/telemetry_daemon.py` managed by `invictine-telemetry.service` on port 8000
-- Responsive two-column telemetry overlay is injected through `custom.js` and styled with `custom.css` using the Invictine brand kit
+- Responsive two-column telemetry overlay is injected through `custom.js` and styled with `custom.css`
 - Nginx reverse proxies:
   - Telemetry API: `/api/telemetry/` (CORS enabled, 5s TTL cache)
   - 3D printer webcam stream: `/webcam/` (proxied from Moonraker `192.168.1.18`)
   - 3D printer webcam HTML5 viewer: `/printer-camera/`
-- Dashboard UI: customized via `custom.js` (live telemetry overlay) and `custom.css` (Invictine brand tokens)
+- Dashboard UI: customized via `custom.js` (live telemetry overlay) and `custom.css`
 - Read-only Proxmox API token: `dashboard-ro@pve!telemetry` in `/etc/invictine-telemetry.env`
 - Local mirror: `C:\Users\aniru\Documents\Server\ct104\homepage`
 
@@ -180,6 +185,42 @@ Lead-processing architecture:
 - Container: `ghcr.io/home-assistant/home-assistant:stable` in `host` network mode (for mDNS/UPnP discovery)
 - Storage: persistent configuration at `/opt/homeassistant/config`
 - User-facing endpoint: `http://192.168.1.37:8123/`
+
+## CT 107 — Uptime Kuma
+
+- Purpose: LAN-only service availability monitoring
+- Static IP: `192.168.1.38/24`, gateway `192.168.1.1`
+- Unprivileged, protected Debian 12 LXC with `nesting=1,keyctl=1`; starts with the Proxmox host
+- Docker Compose project: `/opt/uptime-kuma/docker-compose.yml`
+- Container: `uptime-kuma`, official `louislam/uptime-kuma:2`, restart policy `unless-stopped`
+- Persistent state: local Docker volume `uptime-kuma_uptime-kuma-data` at `/app/data`; do not place it on NFS
+- LAN endpoint: `http://192.168.1.38:3001/`
+- First-run database choice and administrator account remain pending direct user entry; do not automate or record credentials
+
+## CT 108 — n8n
+
+- Purpose: self-hosted LAN workflow automation
+- Static IP: `192.168.1.39/24`, gateway `192.168.1.1`
+- Protected, unprivileged Debian 12 LXC with Docker-in-LXC and host-boot enabled
+- Docker Compose project: `/opt/n8n/docker-compose.yml`; persistent state: `/opt/n8n/n8n_data`
+- n8n image: `n8nio/n8n:2.38.2`; Docker Engine 29.7.2 and Compose plugin 5.5.1 are from Docker's official Debian repository
+- A generated n8n encryption key is stored only in root-readable `/opt/n8n/.env`; never print or persist its value
+- `lxc.apparmor.profile: unconfined` is required for Docker's current runtime in this unprivileged LXC. Treat CT 108 as less AppArmor-confined than other CTs and do not grant it host access or unrelated secrets.
+- LAN endpoint: `http://192.168.1.39:5678/`; initial owner-account setup remains for the user to complete
+
+## CT 109 — Obsidian Sync (Syncthing vault node)
+
+- Purpose: always-on Syncthing peer for the Obsidian vault; the vault **is** the `life-tracker` repo
+- Static IP: `192.168.1.40/24`, gateway `192.168.1.1`
+- Protected, unprivileged Debian 12 LXC (1 vCPU, 512 MiB RAM, 512 MiB swap, 8 GB disk); host-boot enabled; no nesting (native binaries only)
+- Syncthing 1.30.0 from the official apt repo, running as system service `syncthing@obsidian` (user `obsidian`, uid 1000)
+- Syncthing device ID: `OPS2NQ3-CXQSXQX-4HB3EIL-TW2BFD7-BMLKHUD-T54OK6Y-IHHNJJM-C7HESAI` (pairing identity, safe to share with own devices only)
+- Vault folder: id `life-tracker` at `/home/obsidian/life-tracker`, Send & Receive, staggered 30-day versioning; `.stignore` excludes `.git` so Syncthing moves markdown while git moves history
+- GUI listens on `127.0.0.1:8384` only (no LAN exposure yet). First-run: user supplies a GUI password, applied via config while the service is stopped, then bound to LAN. Until then there is no browser access; pairing happens after that step
+- Sync port TCP `22000` with default discovery/relays (works behind CGNAT); local discovery handles LAN peers
+- Git sidecar: `/usr/local/bin/life-tracker-autocommit` + `life-tracker-autocommit.timer` (every 5 min, `Persistent=true`); commits locally as `obsidian-sync`, pushes best-effort when remote auth is configured
+- Local mirror: `C:\Users\aniru\Documents\Server\ct109\`
+- Pending user actions: set GUI password, pair Windows/Android (Syncthing-Fork)/iOS (Mobius Sync) devices, configure git remote auth for push
 
 ## 3D Printer (Mainsail & Moonraker)
 

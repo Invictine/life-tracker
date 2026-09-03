@@ -1,6 +1,6 @@
 # Server Decisions
 
-Last updated: 2026-09-03 (Asia/Kolkata)
+Last updated: 2026-09-04 (Asia/Kolkata)
 
 ## 2026-09-02 — Synchronize every server update with the dashboard
 
@@ -12,7 +12,7 @@ completion check is the authoritative server state plus the rendered dashboard,
 including current labels, values, links, monitors, and health indicators.
 
 When an update is not genuinely dashboard-visible, record that rationale rather
-than creating unrelated dashboard UI. Use the canonical Invictine brand kit for
+than creating unrelated dashboard UI. Match the existing dashboard styling for
 any new dashboard representation.
 
 ## 2026-09-03 — Serve the telemetry workbench directly at the friendly URL
@@ -27,6 +27,32 @@ snapshot is painted immediately and refreshed in the background. Inter and
 JetBrains Mono are self-hosted so layout does not regress or depend on third-
 party font availability. Homepage remains running and reachable at
 `http://192.168.1.35:3000/` as a fallback and rollback path.
+
+## 2026-09-04 — Syncthing vault node with git sidecar (CT 109)
+
+**Status:** ACTIVE
+
+Sync the Obsidian vault with Syncthing rather than Obsidian Sync (paid),
+git-only sync (poor on mobile), Nextcloud (heavy), or LiveSync+CouchDB
+(fragile). The vault **is** the `life-tracker` repo: Syncthing moves
+markdown between Windows/Android/iOS and the always-on CT 109 node,
+while a 5-minute auto-commit timer keeps git history and pushes
+best-effort to GitHub. `.stignore` excludes `.git` so the two sync
+layers never fight. The Syncthing GUI stays localhost-only until a user-
+supplied password is set, and GUI/API credentials are never stored in
+repos.
+
+## 2026-09-04 — Isolate n8n in CT 108
+
+**Status:** ACTIVE
+
+Run self-hosted n8n in its own protected, unprivileged Debian 12 LXC (CT 108)
+at `192.168.1.39`, using Docker Compose and persistent `/opt/n8n/n8n_data`
+storage. Pin n8n to `2.38.2`, keep its generated encryption key in a
+root-readable local `.env` file, use `Asia/Kolkata` scheduling, and expose the
+editor only on the LAN at port 5678. The CT requires an unconfined AppArmor
+profile for Docker's current runtime, so do not grant it access to secrets or
+unnecessary host resources.
 
 ## 2026-07-30 — Single-node Proxmox architecture
 
@@ -77,7 +103,7 @@ Keep LazyMC listening on 25565 and stop Paper after five idle minutes. Use Playi
 
 **Status:** ACTIVE
 
-Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket or store service credentials in the dashboard. Cloudflare Tunnel/Access remains deferred; `server.invictine.com` is only the intended future hostname.
+Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket or store service credentials in the dashboard. On 2026-09-04, the Cloudflare connector package was staged on the Proxmox host, but no tunnel is enrolled or running. `server.invictine.com` remains only an intended future hostname; select the origin and Cloudflare Access policy before creating public ingress.
 
 ## 2026-09-01 — Dedicated Pi-hole LXC
 
@@ -85,11 +111,13 @@ Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket o
 
 Use CT 105 at `192.168.1.36` (migrated from initial `.74`) as a dedicated protected Pi-hole guest, with Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no Pi-hole DHCP service.
 
-## Product UI — Invictine Leads brand kit
+## Product UI — Android four-style system
 
-**Status:** LOCKED UNTIL EXPLICIT DESIGN CHANGE
+**Status:** ACTIVE
 
-`C:\Users\aniru\Documents\Server\brand\README.md` and its tokens are the cross-platform source of truth. Maintain a compact, calm, human-built workbench/funnel aesthetic and avoid generic AI-product decoration.
+The Android app ships four switchable design systems (Heritage Paper, Ember
+Glass, Factory Terminal, Noir Expressive), each with distinct layout and
+navigation. There is no single canonical brand kit.
 
 ## Risky changes require verified backups
 
@@ -129,7 +157,7 @@ Standardize all homelab infrastructure onto a clean, sequential static IP scheme
 Run a Python 3 daemon (`invictine-telemetry.service`) inside CT 104 on port 8000, reverse-proxied via Nginx at `/api/telemetry/`.
 - Polls Moonraker, Pi-hole v6, FreshRSS, Proxmox VE (via dedicated read-only audit token `dashboard-ro@pve!telemetry`), and Minecraft with in-memory 5s TTL caching and CORS.
 - Proxies Moonraker MJPEG stream at `/webcam/` and HTML5 viewer at `/printer-camera/`.
-- Inject a telemetry overlay into Homepage via `custom.js` and `custom.css` adhering to brand tokens.
+- Inject a telemetry overlay into Homepage via `custom.js` and `custom.css` matching the existing dashboard styling.
 - The responsive overlay uses a two-column workbench layout, and the Homepage container requires `CAP_NET_RAW` capability for accurate ICMP status pings.
 
 ## 2026-09-01 — Dedicated Home Assistant Container (CT 106)
