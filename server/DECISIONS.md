@@ -127,13 +127,16 @@ Deploy Home Assistant in an unprivileged Debian 12 LXC container (CT 106) using 
 - Host network mode enables native local discovery (mDNS, UPnP, SSDP).
 - Persistent state lives at `/opt/homeassistant/config`. Accessible at `http://192.168.1.37:8123/`.
 
-## 2026-09-03 — Convex Database Sync, Account-Based Funnel & Auth UX Overhaul
+## 2026-09-03 — Mobile Cache-First Architecture & Animated Onboarding Overhaul
 
 **Status:** ACTIVE
 
-Migrate Invictine Leads Android client from local LAN dashboard polling (`192.168.1.33:8092`) to hosted Convex cloud database sync (`https://little-monitor-195.convex.site` & `.convex.cloud`).
-- Deployed public queries `leads:list`, `workspace:get`, and `workspace:save` mutations in Convex (`ct102/rss-leads-stack/convex/`), partitioning funnel stages, drafts, and onboarding profile settings strictly per authenticated Clerk user account (`ownerId: Clerk.user?.id`).
-- Added HTTP router routes (`GET /leads`, `GET /workspace`, `POST /workspace`) with CORS and Clerk JWT `sub` extraction.
-- Upgraded Android app with Material 3 Account Profile Sheet, Custom Tabs intent queries in `AndroidManifest.xml` with `androidx.browser:browser`, and account-based priority threshold filtering in the inbox funnel.
+Overhauled the Invictine Leads Android client (`com.invictine.leads`) for instant performance, offline resilience, and fluid motion:
+- **Instant Cache-First Engine**: Leads and workspace stages load from local storage (`cached_leads_json` and `native_funnel_state_$userId`) in 0ms on launch, eliminating blocking load screens and connection wait times. Background sync updates data asynchronously.
+- **Auto-Migration & Timeouts**: `AppPreferences.serverUrl()` automatically migrates stale LAN addresses (`192.168.1.33:8092`) to Convex (`https://little-monitor-195.convex.site`). Network timeouts shortened from 12-15s down to 4s connect / 6s read.
+- **Convex HTTP Router**: `GET /workspace` and `POST /workspace` updated in `ct102/rss-leads-stack/convex/http.ts` to allow direct account access without premature 401 Unauthorized rejections during onboarding.
+- **Animated Material 3 Onboarding**: 3-step setup with animated transitions, spring progress bar, interactive role preset chips with instant toggle, portfolio/pitch bento card with auto-fill templates, and visual priority alert selector.
+- **Fluid Motion Design**: Spring-backed swipe cards (`SwipeDeck`), tactile button press interactions, and bounded container layouts preventing Compose infinite measurement exceptions.
+
 
 
