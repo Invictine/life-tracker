@@ -163,8 +163,10 @@ Lead-processing architecture:
 - DNS listeners: TCP and UDP port 53
 - Dashboard listeners: HTTP 80 and HTTPS 443; `webserver.domain` configured to `invictinepihole.local`
 - Pi-hole installation and verification completed 2026-09-01; Avahi & password updated 2026-09-03
-- Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no DHCP service
-- DNS forwarding and blocking verified; 78,609 blocking domains loaded
+- Upstream DNS: Dual-provider parallel querying (`all-servers`) via Cloudflare (`1.1.1.1`, `1.0.0.1`) and Google (`8.8.8.8`, `8.8.4.4`)
+- Caching & Performance: Cache size 20,000, `min-cache-ttl=300`, `dns-forward-max=300`, optimistic caching enabled (3600s)
+- Blocklists: 704,701 unique blocking domains loaded across StevenBlack, HaGeZi Multi PRO, OISD Big, Firebog AdGuard/EasyPrivacy, Anudeep Adservers, and d3ward adblock test suite
+- DNS forwarding and blocking verified; 704,701 blocking domains loaded
 - Dashboard: `http://invictinepihole.local/admin/` (`http://192.168.1.36/admin/`)
 - Router/client DNS was not changed during deployment; network-wide filtering is not active until LAN DNS is pointed to `192.168.1.36`
 - Root-only admin credential file: `/root/.pihole-admin-password` inside CT 105; never read, print, or persist its value
