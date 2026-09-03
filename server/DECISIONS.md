@@ -22,8 +22,10 @@ any new dashboard representation.
 `http://invictine.local/` is served by Nginx as a lightweight static shell using
 the existing Invictine `custom.css` and `custom.js`. This removes Homepage's
 large client bootstrap from the critical rendering path. The printer camera is
-deferred until the initial workbench is visible, and third-party web fonts are
-not required for first render. Homepage remains running and reachable at
+started after the initial workbench is visible. The last successful telemetry
+snapshot is painted immediately and refreshed in the background. Inter and
+JetBrains Mono are self-hosted so layout does not regress or depend on third-
+party font availability. Homepage remains running and reachable at
 `http://192.168.1.35:3000/` as a fallback and rollback path.
 
 ## 2026-07-30 — Single-node Proxmox architecture
