@@ -149,6 +149,11 @@ Overhauled the Invictine Leads Android client (`com.invictine.leads`) for instan
 - **Animated Material 3 Onboarding**: 3-step setup with animated transitions, spring progress bar, interactive role preset chips with instant toggle, portfolio/pitch bento card with auto-fill templates, and visual priority alert selector.
 - **Fluid Motion Design**: Spring-backed swipe cards (`SwipeDeck`), tactile button press interactions, and bounded container layouts preventing Compose infinite measurement exceptions.
 - **Cold Launch Stability Fix**: Removed `verticalScroll` from `ModernAuthScreen` and migrated `OnboardingFlow` to `Crossfade`. This prevents Clerk's internal `AuthView` animations from measuring against unbounded constraints (`Constraints.Infinity`) which previously caused an immediate startup crash (`Size(870 x 2147483647) is out of range`).
+- **Consumer Card & Touch-to-Expand Details**: Redesigned the lead deck card to consume the viewport naturally without empty dead space. Full post content is embedded directly into the card in an expandable container (`animateContentSize()`) that toggles on touch from a 3-line preview to complete body text, scam analysis, and an "Open on Reddit" action.
+- **TopAppBar Filter Integration**: Removed the lone `[Threshold: High +]` filter chip row below the top app bar and converted it into an M3 dropdown menu action with an active indicator badge in the top bar.
+- **Consumer-Grade Account Sheet**: Removed developer-facing Clerk user IDs, copy buttons, and Convex cloud sync badges from `M3AccountBottomSheet`, displaying only clean user profile info, lead criteria, preferences, and sign out.
+- **Centered Stage Empty States**: Replaced off-center empty stage boxes with balanced full-viewport centered layouts containing contextual guidance and a quick "Return to Inbox" action.
+
 
 
 
