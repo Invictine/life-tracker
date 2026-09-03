@@ -49,6 +49,9 @@ Use Google Cloud application-default credentials or a service account rather tha
 - **Antigravity Driver Integration**:
   - Uses the official Google Agent Client Protocol server (`agy_acp_server.exe` under `~/.t3/tools/antigravity-acp/win32-x64/versions/...`).
   - Stored profile / credentials location: `~/.t3/userdata/providers/antigravity/<provider-hash>/antigravity-acp/acp_token.json`.
-  - **Windows Stdio / Auth Quirk**: On Windows, spawning `agy_acp_server.exe` through Node child_process stdio pipes can cause buffering deadlocks where the OAuth consent URL is never emitted to stdout, leaving the UI button stuck on "Starting Google sign-in".
-  - **Resolution**: Authenticate out-of-band via an interactive loopback script running with Python 3.10 to write `acp_token.json` directly to the provider profile (`aicode-consumers` project on `https://daily-cloudcode-pa.googleapis.com`). Once written, T3 Code reads the cached token and avoids the hang.
+  - **Windows Stdio / Health-Check Freeze**: On Windows, `agy_acp_server.exe` (PyInstaller bundle) freezes when Node.js `child_process.spawn` connects anonymous pipes to its stdio. The Python C-runtime and `acp/stdio.py` block in `sys.stdin.buffer.readline()` / `OpenStandardInput()` buffering, preventing both the probe's `initialize` and the auth flow from responding within the 15-second health check or emitting the auth link.
+  - **Resolution**:
+    1. Pre-authenticated via loopback OAuth to generate `acp_token.json` (`aicode-consumers` project on `daily-cloudcode-pa.googleapis.com`).
+    2. Extracted the runtime package into `agy_acp_server_src` with a permanent Python 3.10 environment (`venv_acp`).
+    3. Replaced `agy_acp_server.exe` with a lightweight compiled C# process forwarder that runs Python with unbuffered stdio streaming and immediate flushing. This allows T3 Code's 15-second local health-check probe to complete instantly with full model catalogs populated.
 
