@@ -42,3 +42,13 @@ For cost control once activated:
 Third-party harness (e.g. OpenCode or another provider-agnostic agent) -> Google Vertex AI -> Gemini model.
 
 Use Google Cloud application-default credentials or a service account rather than reusing Gemini/Antigravity OAuth tokens.
+
+## T3 Code (Desktop App)
+
+- **Application**: T3 Code (Nightly), created by Theo / T3 Tools (`C:\Users\aniru\AppData\Local\Programs\t3code`).
+- **Antigravity Driver Integration**:
+  - Uses the official Google Agent Client Protocol server (`agy_acp_server.exe` under `~/.t3/tools/antigravity-acp/win32-x64/versions/...`).
+  - Stored profile / credentials location: `~/.t3/userdata/providers/antigravity/<provider-hash>/antigravity-acp/acp_token.json`.
+  - **Windows Stdio / Auth Quirk**: On Windows, spawning `agy_acp_server.exe` through Node child_process stdio pipes can cause buffering deadlocks where the OAuth consent URL is never emitted to stdout, leaving the UI button stuck on "Starting Google sign-in".
+  - **Resolution**: Authenticate out-of-band via an interactive loopback script running with Python 3.10 to write `acp_token.json` directly to the provider profile (`aicode-consumers` project on `https://daily-cloudcode-pa.googleapis.com`). Once written, T3 Code reads the cached token and avoids the hang.
+
