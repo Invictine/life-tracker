@@ -157,13 +157,15 @@ Lead-processing architecture:
 ## CT 105 — Pi-hole
 
 - Dedicated Pi-hole DNS sinkhole at `192.168.1.36`
+- Friendly mDNS URL: `http://invictinepihole.local/` (Avahi daemon configured on CT 105)
+- Note: External Raspberry Pi at `192.168.1.71` also advertises `invictinepihole.local`; CT 105 falls back to `invictinepihole-2.local` while both are online
 - Proxmox protection flag is enabled for CT 105
 - DNS listeners: TCP and UDP port 53
-- Dashboard listeners: HTTP 80 and HTTPS 443
-- Pi-hole installation and verification completed 2026-09-01
+- Dashboard listeners: HTTP 80 and HTTPS 443; `webserver.domain` configured to `invictinepihole.local`
+- Pi-hole installation and verification completed 2026-09-01; Avahi & password updated 2026-09-03
 - Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no DHCP service
 - DNS forwarding and blocking verified; 78,609 blocking domains loaded
-- Dashboard: `http://192.168.1.36/admin/` (HTTP and HTTPS verified)
+- Dashboard: `http://invictinepihole.local/admin/` (`http://192.168.1.36/admin/`)
 - Router/client DNS was not changed during deployment; network-wide filtering is not active until LAN DNS is pointed to `192.168.1.36`
 - Root-only admin credential file: `/root/.pihole-admin-password` inside CT 105; never read, print, or persist its value
 
