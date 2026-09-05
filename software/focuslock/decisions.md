@@ -43,3 +43,11 @@
 - Supports Android 12+ dynamic theming (`dynamicDarkColorScheme` / Monet) so the app automatically harmonizes with the user's Pixel wallpaper and system palette.
 - Replaced rigid bordered cards with tonal surface elevation hierarchy (`surfaceContainer`, `surfaceContainerHigh`, `surfaceContainerHighest`).
 - Implemented signature Pixel elements: At-a-Glance date/status header, large circular progress dial, generous pill-shaped buttons (`RoundedCornerShape(28.dp)`), filter chips, and a minimalist focus-mode lockout screen.
+
+## 2026-09-05 - Restrained native UI refinement
+
+**Status:** ACTIVE
+
+**Decision:** Keep Android Material 3 and dynamic colors, with a simpler typographic balance display, neutral summary rows, consistent shared shapes, and system light/dark mode. Apply Apple accessibility/hierarchy principles and Taste redesign guidance without adopting iOS components.
+
+**Reason:** User requested a more tasteful UI and explicitly supplied all three design skill sources. This refines the earlier expressive Pixel direction; the locked hybrid TickTick integration remains unchanged.
