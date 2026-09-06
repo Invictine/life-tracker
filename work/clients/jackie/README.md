@@ -67,4 +67,8 @@ The document currently lists September 7 final delivery and September 11 posting
   - Cleaned font glyphs in Comp 04, eliminating missing glyph boxes (□).
   - Adjusted Comp 08 dancer crop to center Sonya's face and gesture.
   - Unclipped Comp 11 top and bottom modal badges.
-- **Outputs**: All 12 ProRes 4444 Straight Alpha (.mov) and preview MP4s rendered and synced to D:\Exports\Mentorship_Animations_Package\ and Google Drive.
+- **Outputs**: All 12 initial ProRes 4444 Straight Alpha (.mov) and preview MP4s rendered and synced to D:\Exports\Mentorship_Animations_Package\ and Google Drive.
+- **New Compositions (Elevated from Codex Previews I08 & M04)**:
+  - **Comp 13: Two Process Folders (`Comp13_Two_Process_Folders.mov`)**: 6.0s tactile comic folders (Giulia & Simona) with rising student artwork sheets, integrated portfolio tabs, printed 3-stage milestone checklist, and "PORTFOLIO APPROVED" mint stamp.
+  - **Comp 14: Watch Later to Done (`Comp14_Watch_Later_to_Done.mov`)**: 5.5s "Tutorial Hell" stack accelerating offscreen into dynamic "DO THE WORK!" assignment board with authentic character construction/inking evolution and lime "DONE! (READY FOR FEEDBACK)" stamp.
+  - Both compositions fully rendered in ProRes 4444 Straight Alpha and H.264 Preview MP4s, deployed to both local `D:\Exports` and Google Drive.
