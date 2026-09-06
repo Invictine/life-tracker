@@ -19,6 +19,8 @@ Last updated: 2026-09-06
 
 The build phase starts immediately after the main half-yearly exams end. The current Google Calendar exam schedule ends with the Physics exam on **14 September 2026 at 12:30 PM**.
 
+Do only the low-effort admin before then: on **8 September**, spend ~15 minutes confirming registration, pulling the actual rules/build requirements, and identifying any long-lead parts worth ordering before the build starts.
+
 First build sprint is scheduled for **14 September, 2:00–5:00 PM**.
 
 Target: have the relevant robot build(s) reliable and event-ready by **27 September 2026**, before the event starts on 28 September.
@@ -34,5 +36,5 @@ Target: have the relevant robot build(s) reliable and event-ready by **27 Septem
 ## Scheduling
 
 - Google Calendar: event window 28 Sep–4 Oct; initial build sprint 14 Sep 2–5 PM.
-- TickTick: RCUBE prep/build/final-test tasks are tagged `RCUBE` and `maker-project`.
+- TickTick: 8 Sep registration/rules check; build phase starts 14 Sep; final test/packing due 27 Sep. Tasks are tagged `RCUBE` and `maker-project`.
 
