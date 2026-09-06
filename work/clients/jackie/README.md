@@ -72,3 +72,47 @@ The document currently lists September 7 final delivery and September 11 posting
   - **Comp 13: Two Process Folders (`Comp13_Two_Process_Folders.mov`)**: 6.0s tactile comic folders (Giulia & Simona) with rising student artwork sheets, integrated portfolio tabs, printed 3-stage milestone checklist, and "PORTFOLIO APPROVED" mint stamp.
   - **Comp 14: Watch Later to Done (`Comp14_Watch_Later_to_Done.mov`)**: 5.5s "Tutorial Hell" stack accelerating offscreen into dynamic "DO THE WORK!" assignment board with authentic character construction/inking evolution and lime "DONE! (READY FOR FEEDBACK)" stamp.
   - Both compositions fully rendered in ProRes 4444 Straight Alpha and H.264 Preview MP4s, deployed to both local `D:\Exports` and Google Drive.
+
+
+### Mapal Motion Graphics & Website Expansion Package (Comps 15 to 19) — 2026-09-06
+In response to the user request to copy Mapal's signature motion graphics tropes (VOX infographics, retro frosted glass texture, kinetic text reveals, article/website macOS mockups, and tactile scrapbook collage with vinyl discs) and build cutaway animations for Jackie's website mentorship page (`jackiedroujko.com/mentorship`), 5 new compositions were crafted and rendered:
+
+1. **Comp 15: Website Browser Showcase & Live Highlight (`Comp15_Website_Browser_Showcase.mov`)**:
+   - 5.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Floating dark macOS Safari/Chrome window with traffic light buttons, search bar (`https://jackiedroujko.com/mentorship`), and vector reload icon.
+   - Animated fluorescent yellow highlighter pen wipe sweeping across *"TRANSFORM YOUR CHARACTER DESIGN"*.
+   - 3-column balanced curriculum preview cards (Weekly 1-on-1 Redlines, Studio Master Portfolio, Discord & Lifetime Recordings) with authentic student artwork.
+   - Hand-drawn doodle loop and star around the center card.
+   - Animated mouse cursor gliding on a smooth bezier curve to the *"APPLY FOR FALL 2026 • RESERVE SPOT"* CTA button, hovering, and clicking with a vibrant mint green *"APPLICATION CONFIRMED"* confirmation and radial ripple ring.
+
+2. **Comp 16: VOX-Style Mentorship Metrics Infographic (`Comp16_VOX_Mentorship_Metrics.mov`)**:
+   - 5.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Authentic VOX editorial aesthetic: warm sketchbook paper (`#F6F3EB`) with a subtle technical dot-grid pattern.
+   - 4 animated numeric counter gauges counting up dynamically from zero: **10 WEEKS**, **25+ HOURS**, **1-ON-1 REVIEWS**, **100% READY**.
+   - Horizontal milestone progress bar filling 0% to 100% across the curriculum timeline with 4 milestone node checkmarks.
+   - 4 evenly-spaced student milestone callout cards below, connected by clean vertical guide lines with vector approved checkmarks.
+
+3. **Comp 17: Retro Frosted Glass Tier Matrix (`Comp17_Retro_Glass_Tier_Matrix.mov`)**:
+   - 5.0s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Mapal signature retro frosted glass panels side-by-side with diffused soft drop shadows:
+     - Left: **Class Pass** (Observer access, lectures, live critiques, recordings).
+     - Right: **Feedback Group** (Intensive tier, highlighted with glowing Jackie Orange border, *"MOST POPULAR • 15 SPOTS ONLY"* badge, weekly 1-on-1 draw-overs, and private Discord lounge).
+   - Animated diagonal specular sheen glint sweeping across both cards, reflecting studio lighting.
+   - Custom vector checkmarks on all 6 feature bullet points per card.
+
+4. **Comp 18: Scrapbook Washi-Tape Artist Collage & Vinyl (`Comp18_Scrapbook_Collage_Vinyl.mov`)**:
+   - 5.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Tactile scrapbook collage featuring three polaroids of Giulia, Sonya, and Simona taped down at organic tilts (-5°, +3°, -3°) with semi-transparent striped washi tape holding opposite corners.
+   - Spinning illustrated vinyl record disc (`t * 75°/s`) at top-right with Jackie Orange center label: *"STUDENT ARCHIVE • FALL 2026 COHORT"*.
+   - Animated curved doodle arrows connecting milestones from Week 1 to Week 5 to Week 10.
+   - Mint green rubber stamp landing across the collage: *"✓ PORTFOLIO APPROVED • FALL 2026"*.
+
+5. **Comp 19: Kinetic Highlighter Punchline Overlay (`Comp19_Kinetic_Highlighter_Punchline.mov`)**:
+   - 4.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - High-retention kinetic typography hook:
+     - Line 1: *"STOP HOARDING TUTORIALS."* slams down, crossed out by a dynamic red marker strike.
+     - Hand-drawn downward arrow directs focus to Line 2.
+     - Line 2: Giant bold *"START GETTING REAL FEEDBACK."* revealed with an expansive electric lime & fresh mint highlighter wipe.
+     - Line 3: Jackie Orange bottom pill badge: *"FALL 2026 MENTORSHIP • LIMITED TO 15 STUDENTS ONLY"* with sunny yellow doodle stars.
+
+All 19 compositions are deployed across both `D:\Exports\Mentorship_Animations_Package\` and `G:\My Drive\Work & Clients\Video Editing\Clients\Jackie\Current videos\2026 fall mentorship\Mentorship_Animations_Package\` with master ProRes 4444 Straight Alpha `.mov` files, H.264 preview `.mp4` videos, and full-resolution `.png` stills.
