@@ -11,11 +11,17 @@
 - [Canonical revised guide](https://drive.google.com/file/d/1cqPJHfBqRyptdjJyqZi2DbELJtV5cVl0/view): `01_Guide_And_Documentation/GUIDE_AND_TIMELINE_MAP.md`.
 
 ## Current state — 2026-09-06
-User rejected the existing animation concepts and asked for a better plan grounded in the script and references. The guide was updated in place to **v4** on September 6, 2026. This is a completed planning revision, **not rebuilt animations or new renders**.
+The user requested new animations from the canonical v4 plan, explicitly preserving existing animations and placing new work in a **codex** subfolder.
 
-Reviewed the full client script, previous guide, three existing composite thumbnails (benefits, comparison, roadmap), Giulia's Arcane Hero asset, all three substantive Giulia inspiration boards and all six Simona inspiration boards. Full timeline playback and render review were not performed. Do not say all output videos were reviewed.
+A new standalone set of **22 rendered clips** is now in `Current videos\2026 fall mentorship\Mentorship_Animations_Package\codex\`: ProRes 4444 masters at 1280×720/24fps, H.264 previews, stills, manifest, local HTML gallery, 112.208-second overview, and editable Python/Pillow generation sources with assets/fonts. All masters/previews decoded successfully; frame counts and geometry were verified. All 149 pre-existing package files retained their paths, sizes and modification times.
 
-The old “v3 Perfected” descriptions are superseded. Existing JSX and 12-composition render package remain old work; their prior presence does not indicate compliance with v4. Source previously recorded as `mentorshipfall2026_V2.mp4` / `mentorshipfall2026_JDnotes_v02.prproj`, 1280×720 at 24 fps; verify active sequence settings before execution. Existing script: `03_Raw_Editable_Project/build_mentorship_animations_v2.jsx`.
+The new set follows I01–I09, M01–M06, O01–O03, with modular link/date/evergreen and separate outro date/CTA clips. Optional I00 was not duplicated because the source edit already contains the toe cold open. The legacy package and original Premiere/After Effects files were not changed.
+
+Actual source export `D:\Exports\mentorshipfall2026_V2.mp4` was verified as 1280×720/24fps. Preview overlays use representative stills from this export, **not dialogue-synced final footage**. The set is silent; music, SFX, demonic voice/punch-in and final timeline placement remain editorial integration work.
+
+Student portfolio pages were verified from native-resolution Week 10 recordings: Giulia's Lagoon lineup at 00:06:45.054 of `GIULIA/w10_giulia.mp4`, Simona's Nyra concept sheet at 00:08:14.563 of `SIMONA/w10-simona.mp4`. I08 uses the plan's neutral named-folder “10-week process” alternative; no before/after claim. I04/I06 reuse actual moving toe-critique footage from the first 2.5 seconds of the existing edit. Class/assignment/peer scenes are explicitly illustrative.
+
+I01a uses a generated fictional studio with camera motion, not actual CalArts footage. I01b uses a newly captured official CalArts cost table with annual-cost context. The source PNG, prompt, source-image provenance, rendering instructions and limitations are recorded in `codex/README.md` and `codex/Source/student_asset_notes.md`.
 
 ## Active creative direction
 - Art and process first: actual drawings, real corrections, a continuing assignment, short dialogue-timed jokes. Avoid repeated polaroid grids, bento curriculum slides, oversized badges and long animation loops.
@@ -42,15 +48,16 @@ Existing prepped assets include sketch pages, lineup, redline image, dancer/crea
 Package structure: `01_Guide_And_Documentation`, `02_Prepped_Assets`, `03_Raw_Editable_Project`, `04_Finished_Outputs` (ProRes_4444_Alpha, Preview_Overlays, Thumbnails and Archive_v1_Rough observed).
 
 ## Next execution steps
-1. Read the v4 guide; use spoken phrase cues, not old absolute timestamps, as placement authority.
-2. Verify matching student project images and select real cost-page/studio/class/feedback assets.
-3. Prioritize tuition gag, comment barrage, demonic punchline and Watch Later beat; then process, student progression and simple information overlays.
-4. Build separately versioned project/script outputs; do not overwrite old renders as if already verified.
-5. Review with actual footage/audio, check attribution and mobile legibility, and test removal of the dated midroll sentence.
+1. Review `codex/index.html` or `codex/OVERVIEW.mp4` and align masters to the actual spoken cues in the current Premiere edit.
+2. Apply music/SFX and the demonic vocal treatment in the source edit; no voice/audio modifications were delivered in the silent graphics.
+3. Check exact face/gesture/end-screen clearance and final half-size playback after placement.
+4. Remove the entire dated midroll sentence with its M06b graphic when making an evergreen edit; O03a can be removed independently.
+5. If a literal before/after is desired instead of the neutral folder treatment, establish same-project early/later chronology first.
+6. Generation source is Python/Pillow; it is not a layered native AE project. Preserve the original supplied files for future revisions.
 
 ## Schedule uncertainty
 The document currently lists September 7 final delivery and September 11 posting. Recent conversation context mentions different dates. No schedule was changed by this revision; verify the current agreement before recording new commitments.
-## Delivered Render Package — Orange & Green System & Zero-Stray-Line Audit (2026-09-06)
+## Legacy pre-v4 render package — preserved, superseded by the v4 direction
 - **Palette Implementation**: Full shift from pink/cyan into Jackie's signature Orange & Green system (#FF6B35 vibrant orange, #FF5722 deep tangerine, #FFA726 amber, #76E05B electric lime, #00E676 fresh mint, #059669 deep jade, #FFEEEC peach wash, #E6FAEE mint wash, #FFD200 sunny yellow, #181824 charcoal ink).
 - **Stray Line & Clutter Removal**:
   - Removed all hardcoded diagonal crack lines from Comp 02 NOPE stamp.
