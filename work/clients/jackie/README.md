@@ -50,3 +50,14 @@ Package structure: `01_Guide_And_Documentation`, `02_Prepped_Assets`, `03_Raw_Ed
 
 ## Schedule uncertainty
 The document currently lists September 7 final delivery and September 11 posting. Recent conversation context mentions different dates. No schedule was changed by this revision; verify the current agreement before recording new commitments.
+## Delivered Render Package — Orange & Green System & Zero-Stray-Line Audit (2026-09-06)
+- **Palette Implementation**: Full shift from pink/cyan into Jackie's signature Orange & Green system (#FF6B35 vibrant orange, #FF5722 deep tangerine, #FFA726 amber, #76E05B electric lime, #00E676 fresh mint, #059669 deep jade, #FFEEEC peach wash, #E6FAEE mint wash, #FFD200 sunny yellow, #181824 charcoal ink).
+- **Stray Line & Clutter Removal**:
+  - Removed all hardcoded diagonal crack lines from Comp 02 NOPE stamp.
+  - Masked Comp 02 3D building showcase window to prevent bottom-edge line bleed.
+  - Unified vector arrow outlines in Comp 01 and Comp 08.
+  - Lowered Comp 03 Card 5 to Y=630 for hand clearance.
+  - Cleaned font glyphs in Comp 04, eliminating missing glyph boxes (□).
+  - Adjusted Comp 08 dancer crop to center Sonya's face and gesture.
+  - Unclipped Comp 11 top and bottom modal badges.
+- **Outputs**: All 12 ProRes 4444 Straight Alpha (.mov) and preview MP4s rendered and synced to D:\Exports\Mentorship_Animations_Package\ and Google Drive.
