@@ -116,3 +116,39 @@ In response to the user request to copy Mapal's signature motion graphics tropes
      - Line 3: Jackie Orange bottom pill badge: *"FALL 2026 MENTORSHIP • LIMITED TO 15 STUDENTS ONLY"* with sunny yellow doodle stars.
 
 All 19 compositions are deployed across both `D:\Exports\Mentorship_Animations_Package\` and `G:\My Drive\Work & Clients\Video Editing\Clients\Jackie\Current videos\2026 fall mentorship\Mentorship_Animations_Package\` with master ProRes 4444 Straight Alpha `.mov` files, H.264 preview `.mp4` videos, and full-resolution `.png` stills.
+
+
+### Talking-Head Transparent Background Variations Suite (Comps 20 to 25) — 2026-09-06
+In response to the user request for "More talking head transparent background variations", 6 dedicated compositions were designed and geometrically tailored to fit the natural studio negative space in Jackie Droujko's talking-head camera footage (`mentorshipfall2026_V2.mp4`), leaving her face, hand gestures, and center Rode microphone completely clear:
+
+1. **Comp 20: Floating "Jackie's Pro Tip" Sketchbook Sticky Note (`Comp20_Sticky_Note_Pro_Tip.mov`)**:
+   - 5.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Positioned in left studio negative space (`X ≈ 180`). Tactile warm parchment memo note with a $-3.5^\circ$ tilt and striped washi tape pinning the top edge.
+   - Sequential checklist points with clean vector checkmarks (*1. Read 10% Silhouette*, *2. Push Line of Action*, *3. Detail Focal Points*) and mint green redline stamp (*WEEKLY 1-ON-1 REDLINES FIX THIS*).
+
+2. **Comp 21: Student Draw-Over Before/After Slider HUD (`Comp21_Draw_Over_Slider_HUD.mov`)**:
+   - 5.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Positioned in right studio negative space (`X ≈ 1080`). Dark frosted acrylic card with `● REC` badge.
+   - Shows Marco's character sketch on sketchbook paper with an active vertical glowing slider line wiping between *BEFORE: STIFF POSE* and *AFTER: DYNAMIC GESTURE* (Jackie's orange anatomical redlines and arrows). Bottom critique callout: *FIX: PUSH GESTURE & TILT PELVIS*.
+
+3. **Comp 22: Top Floating Topic & Chapter Navigation HUD (`Comp22_Topic_Chapter_Navigation_HUD.mov`)**:
+   - 5.0s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Positioned cleanly in the upper headroom (`X=640, Y=60`) above Jackie's head.
+   - Pulsing recording dot, current topic (*TOPIC: THE 3 BIGGEST PORTFOLIO MISTAKES*), 3-step interactive chapter pip progression (*01 Mindset [✓]* ➔ *02 Gesture Pitfalls [●]* ➔ *03 Studio Fix [○]*), and an animated specular sheen sweep.
+
+4. **Comp 23: Student Discord Feedback Pop-Up (`Comp23_Discord_Feedback_Pop.mov`)**:
+   - 5.5s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Positioned in left negative space (`X ≈ 185`). Discord community toast notification with Giulia's student avatar, online indicator, and role badge (*FALL COHORT ALUM*).
+   - Typing indicator `•••` transforms into authentic testimonial quote (*"Jackie's 15-minute redline completely changed how I build silhouettes! Just passed my first TV studio test!"*), 5 golden stars, and verified review pill.
+
+5. **Comp 24: Kinetic Talking-Head Takeaway Lower-Third (`Comp24_Kinetic_Takeaway_Lower_Third.mov`)**:
+   - 5.0s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Positioned in the right lower quadrant (`X ≈ 1030, Y ≈ 620`), clear of her hands and microphone.
+   - Modern slanted card with *CORE PRINCIPLE* tag, bold headline *STUDIOS HIRE SILHOUETTES, NOT RENDERING.* with animated electric lime highlighter wipe across *SILHOUETTES*, and actionable subtext.
+
+6. **Comp 25: Dual Flanking Comparison: "Self-Taught Confusion" vs "Mentorship Clarity" (`Comp25_Dual_Flanking_Comparison.mov`)**:
+   - 6.0s @ 24fps (1280x720 ProRes 4444 Straight Alpha).
+   - Symmetrical cards framing Jackie on both sides while leaving a wide open center stage (`X = 360` to `920`) for her camera presence.
+   - Left: *WITHOUT FEEDBACK* (tutorial loop, guessing mistakes alone, red *NO ACTIONABLE FIXES* stamp); Right: *1-ON-1 MENTORSHIP* (weekly draw-overs, studio pipeline, green *PORTFOLIO APPROVED* stamp with yellow stars).
+
+All 25 compositions across the full suite are deployed in both `D:\Exports\Mentorship_Animations_Package\` and `G:\My Drive\Work & Clients\Video Editing\Clients\Jackie\Current videos\2026 fall mentorship\Mentorship_Animations_Package\`.
