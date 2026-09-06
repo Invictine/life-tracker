@@ -1,6 +1,6 @@
 # Server Decisions
 
-Last updated: 2026-09-02 (Asia/Kolkata)
+Last updated: 2026-09-04 (Asia/Kolkata)
 
 ## 2026-09-02 — Synchronize every server update with the dashboard
 
@@ -12,8 +12,47 @@ completion check is the authoritative server state plus the rendered dashboard,
 including current labels, values, links, monitors, and health indicators.
 
 When an update is not genuinely dashboard-visible, record that rationale rather
-than creating unrelated dashboard UI. Use the canonical Invictine brand kit for
+than creating unrelated dashboard UI. Match the existing dashboard styling for
 any new dashboard representation.
+
+## 2026-09-03 — Serve the telemetry workbench directly at the friendly URL
+
+**Status:** ACTIVE
+
+`http://invictine.local/` is served by Nginx as a lightweight static shell using
+the existing Invictine `custom.css` and `custom.js`. This removes Homepage's
+large client bootstrap from the critical rendering path. The printer camera is
+started after the initial workbench is visible. The last successful telemetry
+snapshot is painted immediately and refreshed in the background. Inter and
+JetBrains Mono are self-hosted so layout does not regress or depend on third-
+party font availability. Homepage remains running and reachable at
+`http://192.168.1.35:3000/` as a fallback and rollback path.
+
+## 2026-09-04 — Syncthing vault node with git sidecar (CT 109)
+
+**Status:** ACTIVE
+
+Sync the Obsidian vault with Syncthing rather than Obsidian Sync (paid),
+git-only sync (poor on mobile), Nextcloud (heavy), or LiveSync+CouchDB
+(fragile). The vault **is** the `life-tracker` repo: Syncthing moves
+markdown between Windows/Android/iOS and the always-on CT 109 node,
+while a 5-minute auto-commit timer keeps git history and pushes
+best-effort to GitHub. `.stignore` excludes `.git` so the two sync
+layers never fight. The Syncthing GUI stays localhost-only until a user-
+supplied password is set, and GUI/API credentials are never stored in
+repos.
+
+## 2026-09-04 — Isolate n8n in CT 108
+
+**Status:** ACTIVE
+
+Run self-hosted n8n in its own protected, unprivileged Debian 12 LXC (CT 108)
+at `192.168.1.39`, using Docker Compose and persistent `/opt/n8n/n8n_data`
+storage. Pin n8n to `2.38.2`, keep its generated encryption key in a
+root-readable local `.env` file, use `Asia/Kolkata` scheduling, and expose the
+editor only on the LAN at port 5678. The CT requires an unconfined AppArmor
+profile for Docker's current runtime, so do not grant it access to secrets or
+unnecessary host resources.
 
 ## 2026-07-30 — Single-node Proxmox architecture
 
@@ -64,7 +103,7 @@ Keep LazyMC listening on 25565 and stop Paper after five idle minutes. Use Playi
 
 **Status:** ACTIVE
 
-Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket or store service credentials in the dashboard. Cloudflare Tunnel/Access remains deferred; `server.invictine.com` is only the intended future hostname.
+Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket or store service credentials in the dashboard. On 2026-09-04, the Cloudflare connector package was staged on the Proxmox host, but no tunnel is enrolled or running. `server.invictine.com` remains only an intended future hostname; select the origin and Cloudflare Access policy before creating public ingress.
 
 ## 2026-09-01 — Dedicated Pi-hole LXC
 
@@ -72,11 +111,13 @@ Run Homepage in CT 104 behind local Nginx/mDNS. Do not mount the Docker socket o
 
 Use CT 105 at `192.168.1.36` (migrated from initial `.74`) as a dedicated protected Pi-hole guest, with Cloudflare upstream DNS, LAN-only listening, query logging, the default blocklist, and no Pi-hole DHCP service.
 
-## Product UI — Invictine Leads brand kit
+## Product UI — Android four-style system
 
-**Status:** LOCKED UNTIL EXPLICIT DESIGN CHANGE
+**Status:** ACTIVE
 
-`C:\Users\aniru\Documents\Server\brand\README.md` and its tokens are the cross-platform source of truth. Maintain a compact, calm, human-built workbench/funnel aesthetic and avoid generic AI-product decoration.
+The Android app ships four switchable design systems (Heritage Paper, Ember
+Glass, Factory Terminal, Noir Expressive), each with distinct layout and
+navigation. There is no single canonical brand kit.
 
 ## Risky changes require verified backups
 
@@ -116,7 +157,7 @@ Standardize all homelab infrastructure onto a clean, sequential static IP scheme
 Run a Python 3 daemon (`invictine-telemetry.service`) inside CT 104 on port 8000, reverse-proxied via Nginx at `/api/telemetry/`.
 - Polls Moonraker, Pi-hole v6, FreshRSS, Proxmox VE (via dedicated read-only audit token `dashboard-ro@pve!telemetry`), and Minecraft with in-memory 5s TTL caching and CORS.
 - Proxies Moonraker MJPEG stream at `/webcam/` and HTML5 viewer at `/printer-camera/`.
-- Inject a telemetry overlay into Homepage via `custom.js` and `custom.css` adhering to brand tokens.
+- Inject a telemetry overlay into Homepage via `custom.js` and `custom.css` matching the existing dashboard styling.
 - The responsive overlay uses a two-column workbench layout, and the Homepage container requires `CAP_NET_RAW` capability for accurate ICMP status pings.
 
 ## 2026-09-01 — Dedicated Home Assistant Container (CT 106)
@@ -126,4 +167,23 @@ Run a Python 3 daemon (`invictine-telemetry.service`) inside CT 104 on port 8000
 Deploy Home Assistant in an unprivileged Debian 12 LXC container (CT 106) using Docker Compose with `host` network mode (`ghcr.io/home-assistant/home-assistant:stable`).
 - Host network mode enables native local discovery (mDNS, UPnP, SSDP).
 - Persistent state lives at `/opt/homeassistant/config`. Accessible at `http://192.168.1.37:8123/`.
+
+## 2026-09-03 — Mobile Cache-First Architecture & Animated Onboarding Overhaul
+
+**Status:** ACTIVE
+
+Overhauled the Invictine Leads Android client (`com.invictine.leads`) for instant performance, offline resilience, and fluid motion:
+- **Instant Cache-First Engine**: Leads and workspace stages load from local storage (`cached_leads_json` and `native_funnel_state_$userId`) in 0ms on launch, eliminating blocking load screens and connection wait times. Background sync updates data asynchronously.
+- **Auto-Migration & Timeouts**: `AppPreferences.serverUrl()` automatically migrates stale LAN addresses (`192.168.1.33:8092`) to Convex (`https://little-monitor-195.convex.site`). Network timeouts shortened from 12-15s down to 4s connect / 6s read.
+- **Convex HTTP Router**: `GET /workspace` and `POST /workspace` updated in `ct102/rss-leads-stack/convex/http.ts` to allow direct account access without premature 401 Unauthorized rejections during onboarding.
+- **Animated Material 3 Onboarding**: 3-step setup with animated transitions, spring progress bar, interactive role preset chips with instant toggle, portfolio/pitch bento card with auto-fill templates, and visual priority alert selector.
+- **Fluid Motion Design**: Spring-backed swipe cards (`SwipeDeck`), tactile button press interactions, and bounded container layouts preventing Compose infinite measurement exceptions.
+- **Cold Launch Stability Fix**: Removed `verticalScroll` from `ModernAuthScreen` and migrated `OnboardingFlow` to `Crossfade`. This prevents Clerk's internal `AuthView` animations from measuring against unbounded constraints (`Constraints.Infinity`) which previously caused an immediate startup crash (`Size(870 x 2147483647) is out of range`).
+- **Consumer Card & Touch-to-Expand Details**: Redesigned the lead deck card to consume the viewport naturally without empty dead space. Full post content is embedded directly into the card in an expandable container (`animateContentSize()`) that toggles on touch from a 3-line preview to complete body text, scam analysis, and an "Open on Reddit" action.
+- **TopAppBar Filter Integration**: Removed the lone `[Threshold: High +]` filter chip row below the top app bar and converted it into an M3 dropdown menu action with an active indicator badge in the top bar.
+- **Consumer-Grade Account Sheet**: Removed developer-facing Clerk user IDs, copy buttons, and Convex cloud sync badges from `M3AccountBottomSheet`, displaying only clean user profile info, lead criteria, preferences, and sign out.
+- **Centered Stage Empty States**: Replaced off-center empty stage boxes with balanced full-viewport centered layouts containing contextual guidance and a quick "Return to Inbox" action.
+
+
+
 

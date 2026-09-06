@@ -1,6 +1,6 @@
 # Server Open Items
 
-Last updated: 2026-09-01 (Asia/Kolkata)
+Last updated: 2026-09-04 (Asia/Kolkata)
 
 ## High-risk / safety
 
@@ -15,9 +15,13 @@ Last updated: 2026-09-01 (Asia/Kolkata)
 - **CT 101:** configure a messaging platform only when desired; unknown users remain denied.
 - **CT 102:** `rssbridge` is defined but not running/created; decide whether it is still needed.
 - **CT 103:** diagnose the same five generic Debian-in-LXC failed units separately from Minecraft/Playit health.
-- **CT 104:** Cloudflare Tunnel and Access are deferred; `server.invictine.com` is not yet the active dashboard address.
+- **Proxmox host:** complete the one-time Tailnet approval for `invictineserver`, then verify the Tailscale address and confirm it still accepts neither DNS nor subnet routes.
+- **Cloudflare Tunnel:** provide an enrollment token through a secret channel and choose the origin hostname/service plus a Cloudflare Access policy. No public route should be created before those choices are confirmed.
 - **CT 105:** reserve or exclude `192.168.1.36` in the router's DHCP settings, then configure the router's LAN DNS server as `192.168.1.36` when network-wide filtering is desired. Pi-hole forwarding/blocking is already verified; the router/client DNS cutover was intentionally not made during deployment.
 - **CT 105:** three generic Debian-in-LXC namespace-related units are failed (`systemd-logind`, `systemd-networkd`, `systemd-networkd.socket`); do not change container plumbing as incidental Pi-hole cleanup.
+- **CT 107:** complete Uptime Kuma's first-run database and administrator setup directly at `http://192.168.1.38:3001/`, then add the desired LAN monitors and notification channels. Keep credentials and notification secrets out of the repository.
+- **CT 109:** finish Obsidian first-run in this order: (1) supply a Syncthing GUI password to set + bind LAN, (2) pair Windows first (existing notes win), then Android via Syncthing-Fork and iOS via Mobius Sync, sharing folder id `life-tracker`, (3) open the synced folder as the Obsidian vault on each device, (4) configure git remote auth on CT 109 so the auto-commit timer can push to GitHub. Keep GUI/API credentials out of repositories.
+- **CT 109:** add an Uptime Kuma monitor for the Syncthing node (TCP 22000 on `192.168.1.40`, or HTTPS-style check once the GUI is LAN-bound with auth).
 
 ## Operational hygiene
 

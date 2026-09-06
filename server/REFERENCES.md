@@ -14,13 +14,16 @@ Last updated: 2026-09-02 (Asia/Kolkata)
 | Homepage | `http://invictine.local/` |
 | Homepage fallback | `http://192.168.1.35:3000/` |
 | Pi-hole | `http://192.168.1.36/admin/` |
+| Uptime Kuma | `http://192.168.1.38:3001/` |
+| n8n | `http://192.168.1.39:5678/` |
+| Obsidian Sync (Syncthing) | CT 109 `192.168.1.40`, GUI `127.0.0.1:8384` (localhost-only until password set) |
 
 Expected SSH ED25519 fingerprint: `SHA256:cjBePBXRZXacsL9jX9pbwRnDT8FrOc2ma+ZQ/zmfi4E`.
 
 ## Local project paths
 
 - Server workspace: `C:\Users\aniru\Documents\Server`
-- Brand kit: `C:\Users\aniru\Documents\Server\brand\README.md`
+- Android app styles: `android/rss-leads/app/src/main/java/com/invictine/leads/ui/` (Heritage Paper, Ember Glass, Factory Terminal, Noir Expressive)
 - CT 100 mirror/tests: `C:\Users\aniru\Documents\Server\ct100\rss-leads-discord`
 - CT 102 mirror/tests: `C:\Users\aniru\Documents\Server\ct102\rss-leads-stack`
 - CT 103 mirror: `C:\Users\aniru\Documents\Server\ct103\minecraft-server`
@@ -73,6 +76,11 @@ pct exec 104 -- docker logs --tail 100 homepage
 pct config 105
 pct exec 105 -- systemctl status pihole-FTL --no-pager
 pct exec 105 -- ss -lntup
+
+pct config 109
+pct exec 109 -- systemctl is-active syncthing@obsidian life-tracker-autocommit.timer
+pct exec 109 -- su -s /bin/bash obsidian -c 'syncthing --device-id'
+pct exec 109 -- journalctl -u syncthing@obsidian --since '30 minutes ago' --no-pager
 ```
 
 Run `pct exec <id> -- systemctl --failed --no-pager` for the guest being inspected.
@@ -115,3 +123,7 @@ pve-config-restore restore latest --component=[pve|network|systemd|cron|all]
 # Off-host pull from Windows workstation
 .\scripts\pull-pve-backup.ps1
 ```
+# Remote connectivity
+
+- Tailscale Debian packages (stable): https://pkgs.tailscale.com/stable/
+- Cloudflare Tunnel downloads and connector setup: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/

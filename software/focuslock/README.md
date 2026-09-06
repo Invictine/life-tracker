@@ -52,6 +52,6 @@ Unlike standard screen-time limiters that are easily dismissed, FocusLock binds 
    - **Midnight Reset**: Automatically refreshes daily consumption metrics while preserving or rolling over earned credits.
 
 4. **UI & Control Center (Jetpack Compose + Material 3)**:
-   - **Dashboard**: High-visibility OLED balance circle, today's work vs. scroll metrics, recent TickTick work timeline.
+   - **Dashboard**: Prominent time balance with restrained tonal surfaces, today's work vs. scroll metrics, recent TickTick work timeline.
    - **Target App Selector**: Pre-configured with Instagram, YouTube, TikTok, Reddit, Twitter/X; supports toggling any installed app on the device.
    - **Settings & Permission Wizard**: Guided activation for Accessibility, Usage Stats, Notification Listener, and Overlay permissions.

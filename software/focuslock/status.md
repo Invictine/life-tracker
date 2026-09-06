@@ -2,7 +2,7 @@
 
 **Current State:** ACTIVE / IMPLEMENTED
 
-**Last Updated:** 2026-09-02
+**Last Updated:** 2026-09-05
 
 ## Completed
 - [x] Comprehensive architectural implementation plan approved by user.
@@ -22,3 +22,16 @@
 - [x] Redesigned picker into AppBlock-style dual-tab layout (`Applications` and `Websites`) with quick preset buttons ("Block All Social", "Block All Video").
 - [x] Real-time browser URL inspection via Accessibility Service for Chrome, Brave, Samsung Internet, Firefox, Edge to block doomscroll websites.
 - [x] Assembled updated APK: `scratch/focuslock-debug.apk` (20.3 MB).
+
+- [ ] Add YouTube Shorts specific UI container filter.
+
+## Current local update - 2026-09-05
+
+- Configured supplied TickTick developer credentials in ignored local.properties; no secret values stored here. Credentials are embedded in this personal APK, so do not publish it.
+- Fixed authorization-code exchange to use HTTP Basic authentication per TickTick documentation. Added persistent one-use OAuth state with ten-minute expiry and callback URI validation. Complete Settings overrides now take precedence as a pair; missing credentials no longer enable a bogus login.
+- Redid dashboard hierarchy around available time, quieter daily summary rows, and clear primary/secondary actions. Added Boundaries screen heading, shared shape tokens, system light/dark support, and constrained large-window content width.
+- Installed Material 3 and Apple design skills and all 13 skills provided by the requested Taste installer. Reference clones are under C:\Users\aniru\.codex\design-references.
+- Added OAuth request/state tests; 19 unit tests pass. Debug APK builds. Lint passes with no errors after correcting the blocker receiver flag; existing non-blocking warnings remain.
+- No ADB device or emulator available in this session. Previous 2026-09-02 device installation above refers to the earlier build. New APK is not installed or visually verified; actual account login is not verified.
+- TickTick developer redirect must be exactly `focuslock://oauth/callback`; portal registration remains unverified.
+

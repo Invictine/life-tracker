@@ -72,3 +72,14 @@ Before changing the printer:
 2. Save any KAMP, Mainsail, Obico, runout-sensor, BLTouch, and custom macro configuration.
 3. Photograph the current board wiring.
 4. Record known-good thermistor and heater settings for the old hotend as historical reference, but do not automatically transfer them to the new hotend.
+
+### 2026-09-04 pre-Proxmox migration backup
+
+- **PENDING migration:** user plans to install Proxmox on the current Raspberry Pi 4 and run the printer software in a container.
+- Live hardware verified through Moonraker as a Raspberry Pi 4 Model B Rev 1.4 with a 59.5 GiB SanDisk microSD, running MainsailOS 2.2.2 / Debian 12.
+- Printer was verified idle, heaters off, Klipper ready, and Moonraker healthy before backup work.
+- A Moonraker database snapshot was created at `/home/invictine/printer_data/backup/database/sqldb-backup-20260904-055158.db`.
+- Off-device printer-data backup copied to the Windows server workspace under `backups/printer-pi-20260904-055308/`, including all Moonraker-exposed config, logs, G-code, system metadata, printer state, and history. The verified ZIP is `backups/printer-pi-20260904-055308.zip` (188,570,228 bytes; SHA-256 `6E17B72C28B330FB051D0C81759F93F00B0252EF6D5363604F81FE8DCAF3287D`).
+- Configuration and G-code counts/sizes matched the live API exactly. Active log files changed during transfer, as expected.
+- **BLOCKED / REQUIRED BEFORE WIPE:** create and verify a whole-microSD image. SSH accepts password authentication for user `invictine`, but no workstation SSH key was authorized during this session.
+- Preserve the original microSD unchanged until the Proxmox/container migration has completed several successful prints.
