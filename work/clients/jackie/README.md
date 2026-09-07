@@ -152,3 +152,8 @@ In response to the user request for "More talking head transparent background va
    - Left: *WITHOUT FEEDBACK* (tutorial loop, guessing mistakes alone, red *NO ACTIONABLE FIXES* stamp); Right: *1-ON-1 MENTORSHIP* (weekly draw-overs, studio pipeline, green *PORTFOLIO APPROVED* stamp with yellow stars).
 
 All 25 compositions across the full suite are deployed in both `D:\Exports\Mentorship_Animations_Package\` and `G:\My Drive\Work & Clients\Video Editing\Clients\Jackie\Current videos\2026 fall mentorship\Mentorship_Animations_Package\`.
+
+
+### Revisions to Comp 01 & Comp 02 (User Feedback) — 2026-09-07
+- **Comp 01 (Toe Critique)**: Removed redundant magnifying glass circle and orange arrow (since Jackie's source video already has a blue hand-drawn arrow pointing to the toe). Removed the pill box background. Replaced with big, kinetic comic typography (*"YOU THOUGHT I WOULDN'T NOTICE?!"*) with thick comic outline, drop shadow, punch-in overshoot, impact flash, and tasteful alternating shimmer.
+- **Comp 02 (Art School vs Reality)**: Updated the *"NOPE."* rubber stamp background to vibrant red (`#EB2D2D`). Centered the text *"NOPE."* mathematically both vertically and horizontally inside the stamp. Vertically and horizontally centered the lower element text (*"TRADITIONAL ART SCHOOL"* and *"$200,000 TUITION • 4 YEARS DEBT"*) with equal margins within the bottom card area.
