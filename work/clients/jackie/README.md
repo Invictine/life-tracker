@@ -10,10 +10,10 @@
 - [Animation package](https://drive.google.com/drive/folders/1ilIpbQzwys78A6IyC5D4qJM41w6qetja)
 - [Canonical revised guide](https://drive.google.com/file/d/1cqPJHfBqRyptdjJyqZi2DbELJtV5cVl0/view): `01_Guide_And_Documentation/GUIDE_AND_TIMELINE_MAP.md`.
 
-## Current state — 2026-09-06
+## Current state — 2026-09-07
 The user requested new animations from the canonical v4 plan, explicitly preserving existing animations and placing new work in a **codex** subfolder.
 
-A new standalone set of **22 rendered clips** is now in `Current videos\2026 fall mentorship\Mentorship_Animations_Package\codex\`: ProRes 4444 masters at 1280×720/24fps, H.264 previews, stills, manifest, local HTML gallery, 112.208-second overview, and editable Python/Pillow generation sources with assets/fonts. All masters/previews decoded successfully; frame counts and geometry were verified. All 149 pre-existing package files retained their paths, sizes and modification times.
+The first Codex pass contained **22 rendered clips** in `Current videos\2026 fall mentorship\Mentorship_Animations_Package\codex\`: ProRes 4444 masters at 1280×720/24fps, H.264 previews, stills, manifest, local HTML gallery, 112.208-second overview, and editable Python/Pillow generation sources with assets/fonts. All masters/previews decoded successfully; frame counts and geometry were verified. All 149 pre-existing package files retained their paths, sizes and modification times.
 
 The new set follows I01–I09, M01–M06, O01–O03, with modular link/date/evergreen and separate outro date/CTA clips. Optional I00 was not duplicated because the source edit already contains the toe cold open. The legacy package and original Premiere/After Effects files were not changed.
 
@@ -22,6 +22,13 @@ Actual source export `D:\Exports\mentorshipfall2026_V2.mp4` was verified as 1280
 Student portfolio pages were verified from native-resolution Week 10 recordings: Giulia's Lagoon lineup at 00:06:45.054 of `GIULIA/w10_giulia.mp4`, Simona's Nyra concept sheet at 00:08:14.563 of `SIMONA/w10-simona.mp4`. I08 uses the plan's neutral named-folder “10-week process” alternative; no before/after claim. I04/I06 reuse actual moving toe-critique footage from the first 2.5 seconds of the existing edit. Class/assignment/peer scenes are explicitly illustrative.
 
 I01a uses a generated fictional studio with camera motion, not actual CalArts footage. I01b uses a newly captured official CalArts cost table with annual-cost context. The source PNG, prompt, source-image provenance, rendering instructions and limitations are recorded in `codex/README.md` and `codex/Source/student_asset_notes.md`.
+
+## Codex Revision 02 — quality feedback and replacement set
+The user rejected the first Codex pass's animation quality, explicitly approved **I08 / Two process folders**, and liked M04's concept but requested polish. I08's physical folder reveal and timing are the reference for further Codex revisions.
+
+A separate `codex/Revision_02/` contains 21 revised clips plus the byte-identical approved I08 master: 22 ProRes 4444 masters, H.264 previews, stills, gallery, 112.208-second overview, and portable source. All 44 movies decoded successfully at 1280×720/24fps, and overlay alpha was checked. All 223 files in the earlier Codex snapshot remained unchanged. This revision wrote only inside Revision_02; the outside-Codex package has independently changed since the original September 6 inventory.
+
+Revisions use verified artwork examples and staged paper actions, polish M04's saved-video stack and Done stamp, add continuous portfolio transitions, and refine title/comment/date/eligibility/flame animation. Artwork reveals are editorial treatments, not reconstructed drawing chronology or invented corrections. These are silent standalone graphics; final speech timing, audio and timeline integration remain. User acceptance of Revision 02 is pending.
 
 ## Active creative direction
 - Art and process first: actual drawings, real corrections, a continuing assignment, short dialogue-timed jokes. Avoid repeated polaroid grids, bento curriculum slides, oversized badges and long animation loops.
@@ -48,7 +55,7 @@ Existing prepped assets include sketch pages, lineup, redline image, dancer/crea
 Package structure: `01_Guide_And_Documentation`, `02_Prepped_Assets`, `03_Raw_Editable_Project`, `04_Finished_Outputs` (ProRes_4444_Alpha, Preview_Overlays, Thumbnails and Archive_v1_Rough observed).
 
 ## Next execution steps
-1. Review `codex/index.html` or `codex/OVERVIEW.mp4` and align masters to the actual spoken cues in the current Premiere edit.
+1. Review `codex/Revision_02/index.html` or `codex/Revision_02/OVERVIEW.mp4` against the user's quality feedback, then align accepted masters to the actual spoken cues in the current Premiere edit.
 2. Apply music/SFX and the demonic vocal treatment in the source edit; no voice/audio modifications were delivered in the silent graphics.
 3. Check exact face/gesture/end-screen clearance and final half-size playback after placement.
 4. Remove the entire dated midroll sentence with its M06b graphic when making an evergreen edit; O03a can be removed independently.
