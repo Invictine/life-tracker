@@ -164,3 +164,40 @@ All 25 compositions across the full suite are deployed in both `D:\Exports\Mento
 ### Revisions to Comp 01 & Comp 02 (User Feedback) — 2026-09-07
 - **Comp 01 (Toe Critique)**: Removed redundant magnifying glass circle and orange arrow (since Jackie's source video already has a blue hand-drawn arrow pointing to the toe). Removed the pill box background. Replaced with big, kinetic comic typography (*"YOU THOUGHT I WOULDN'T NOTICE?!"*) with thick comic outline, drop shadow, punch-in overshoot, impact flash, and tasteful alternating shimmer.
 - **Comp 02 (Art School vs Reality)**: Updated the *"NOPE."* rubber stamp background to vibrant red (`#EB2D2D`). Centered the text *"NOPE."* mathematically both vertically and horizontally inside the stamp. Vertically and horizontally centered the lower element text (*"TRADITIONAL ART SCHOOL"* and *"$200,000 TUITION • 4 YEARS DEBT"*) with equal margins within the bottom card area.
+
+### Comprehensive 25-Composition Overhaul (v7 Master Suite) — 2026-09-07
+In response to exhaustive comp-by-comp user feedback, all 25 compositions across the entire package were overhauled, rendered, and deployed via the unified master engine `render_v4_master_package.py`:
+1. **Universal Lifecycle (Animate-In & Animate-Out)**: Every single composition now features an overshoot ease-in (`ease_overshoot(p, 1.10)`) and a clean, snappy exit transition (`ease_in_cubic` slide/fade out) during the final 0.40s–0.45s of duration. No clips end abruptly.
+2. **Unified Clean Visual System**: Replaced heavy, diffuse background drop shadows with tight, clean 4px offset card shadows and 3px–4px crisp charcoal outlines (`#181824`). Standardized on Jackie's signature palette (Cream `#FFFDF5`, Jackie Orange `#FF6B35`, Electric Lime `#76E05B`, Fresh Mint `#00E676`, Sunny Yellow `#FFD200`). Fixed badge text clipping with centered `anchor="mm"` Pillow font metrics.
+3. **Artwork Focal Point Realignment**: Integrated authentic Week 10 finished character splash sheets: Giulia Boscolo (`giulia_w10_lagoon_board_t405s.png`) and Simona Calà (`simona_w10_character_sheet_t495s.png`), cleanly cropped to avoid black footer bars. Extracted centered live-call avatar for Giulia (`giulia_live_call_centered.png`) from `w1_giulia.mp4` showing her face, smile, and headphones centered in Pillar 01.
+4. **Targeted Comp Redesigns**:
+   - **Comp 01**: Big kinetic text with impact flash; no circle, arrow, or box background.
+   - **Comp 02**: Vivid red `#EB2D2D` NOPE stamp, centered typography.
+   - **Comp 04**: Orange text first, zero drop shadows, centered finished splash sheets.
+   - **Comp 05**: Staggered bounce-in, centered images (especially Giulia live class avatar).
+   - **Comp 06**: Student spotlight polaroids centered on character focal points.
+   - **Comp 07**: 3-Tier Level-Up Suite (Beginner ➔ Art Student ➔ Industry Ready) with visual skill meters.
+   - **Comp 08**: 10-Week Visual Transformation Roadmap with student art stages and energy line.
+   - **Comp 09**: Bento Curriculum Grid with high-contrast colored headers.
+   - **Comp 10**: **100% Transparent Alpha** over video; 2 floating comparison blocks (*Class Pass* vs *Feedback Group*).
+   - **Comp 11**: Tilted tear-off Calendar Deadline card (October 10) with clock icon.
+   - **Comp 12**: Outro CTA with student portfolio showcase and pulsing apply button.
+   - **Comp 13**: Expanding process folders with rising critique sheets & mint approval stamp.
+   - **Comp 14**: YouTube playlist ("Watch Later - 142 videos") with red strike morphing into finished student art.
+   - **Comp 15**: Browser showcase with verified in/out animations.
+   - **Comp 16**: Equalized bottom padding and animated stat counters.
+   - **Comp 17**: Retro frosted glass tier matrix.
+   - **Comp 18**: **Completely removed spinning vinyl disc**; centered student polaroids with washi tape.
+   - **Comp 19**: Raw kinetic typography over video (no bulky grey boxes): *"STOP HOARDING TUTORIALS."* with red strike ➔ *"GET REAL FEEDBACK."* with electric lime swipe.
+   - **Comp 20**: Subtle sticky note dot-grid (opacity 15); polished margins.
+   - **Comp 21**: Aligned visual language for before/after slider HUD.
+   - **Comp 22**: Preserved top headroom HUD.
+   - **Comp 23**: **Converted to authentic YouTube Dark Mode Comment UI** (circular avatar, `@GiuliaArt`, "Pinned by @JackieDroujko", thumbs-up count, Jackie heart).
+   - **Comp 24**: Polished stroke rendering on lower third.
+   - **Comp 25**: Sleek, single-sided negative-space comparison widget on the left flank.
+5. **Master Deliverables**:
+   - 25 Apple ProRes 4444 Straight Alpha `.mov` files (1.21 GB) at 1280x720 @ 24fps.
+   - 25 H.264 Preview Overlay `.mp4` files.
+   - 58 transparent & composite thumbnails.
+   - Full master script `render_v4_master_package.py` and documentation `GUIDE_AND_TIMELINE_MAP.md`.
+   - Deployed to both `D:\Exports\Mentorship_Animations_Package\` and `G:\My Drive\Work & Clients\Video Editing\Clients\Jackie\Current videos\2026 fall mentorship\Mentorship_Animations_Package\`.
