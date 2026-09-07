@@ -236,3 +236,40 @@ Following 5 systematic review passes (addressing animation variety, student art 
    - Jackie's camera frame vignette occupies the right side (`X: 750 to 1180`).
    - **Comp 21 (Draw-Over Slider HUD)**: Moved from `X=1010` (which occluded Jackie) to left negative space (`cx=380, cy=390`), sliding in from left (`from_left=True`).
    - **Comp 25 (Dual Flanking Comparison)**: Consolidated Step 1 ("ROUGH SHAPES") and Step 2 ("HERO FINISH") side-by-side inside the left negative space (`X: 65 to 635`), leaving the entire right half (`X: 635 to 1280`) 100% clear for Jackie's face.
+
+### Client Revisions by Antonio Caggiano (Jackie Droujko Team) — 2026-09-07
+Incorporated 8 direct timestamped editorial comments from client Antonio Caggiano (`media_1788801161091.png` and `media_1788801168286.png`):
+1. **Comment #9 (`00:06:05:23`) - Comp 26: Marco Later Stage Polish Reveal**:
+   - Replaced indistinct draw-over with clear later-stage art of Marco (little boy character) by Giulia Boscolo.
+   - Contrasts clean line sketch (`giulia_marco_sketch_pose1.png`) against refined full-color Week 10 polished pose (`giulia_marco_colored_stage.png`).
+   - Jackie's circular talking head camera bubble at center-right (`X: 450-850`) remains 100% unobstructed.
+2. **Comment #11 (`00:06:53:05`) - Editorial Audio Cut**:
+   - Jackie says *"because"* and pauses; instructed to cut out *"because"* to finish thought cleanly.
+   - Pinpointed in `Jackie_Mentorship_v8_Markers.csv` with ripple-delete instructions.
+3. **Comment #12 (`00:07:23:06`) - Comp 23: Mapal Time Out Graphic**:
+   - Mapal-style punchy kinetic *"TIME OUT"* badge with stopwatch vector icon, electric lime and orange accents, action burst lines, and spring slam entrance.
+4. **Comment #17 (`00:07:42:09`) - Comp 27: Spoken Points Animated Checklist**:
+   - High-contrast animated checklist widget popping points in sync with Jackie's voice:
+     - 1. Classes & Live Demos (Camera vector icon)
+     - 2. Weekly Assignments (Checklist vector icon)
+     - 3. Q&A During Class (Chat bubble vector icon)
+     - 4. TA Paintover Feedback (Pen nib vector icon)
+     - 5. Cohort Community Discord (Users cohort vector icon)
+5. **Comment #13 (`00:07:47:13`) - Comp 15: Mentorship Test Website Walkthrough**:
+   - Grounded strictly in `jackiedroujko.com/mentorship_tst` without any placeholder/temp images.
+   - Features Section 8 (10-Week Curriculum Accordion with authentic week icons `icon_w1.png` - `icon_w10.png`) and Section 6 (Emily Maneval student project).
+6. **Comment #14 (`00:07:57:03`) - Comp 14: YouTube Tutorial Cascade & "Do The Work" Board**:
+   - Cascading cards of art tutorials ("Anatomy Crash Course 1 Hr", "Color Theory Masterclass 90 Min", "Perspective Fundamentals 2 Hrs") slammed with a bold red cross-out, revealing a tactile corkboard: *"DO THE WORK: 10 WEEKS • REAL FEEDBACK • FINISHED PORTFOLIO"*.
+7. **Comment #15 (`00:08:11:15`) & Comment #16 (`00:08:15:21`) - Comp 28: Montserrat Levels & Personas**:
+   - Strict constraint enforced: **"please only use montserrat font."** (Zero Super Corn or Provicali used).
+   - `BEGINNER [✓]` and `INTERMEDIATE [✓]` badges with vector checkmark circles (avoiding missing font glyphs).
+   - 3 Persona cards:
+     - *Self-Taught* (Palette vector icon)
+     - *In Art School* (Graduation Cap vector icon)
+     - *Graduated / Working* (Briefcase vector icon)
+8. **Master Import Suite v8**:
+   - `Jackie_Mentorship_v8_Timeline_Import.xml` (FCP 7 XML)
+   - `Jackie_Mentorship_v8_Markers.csv` (Includes audio cut marker at `00:06:53:05`)
+   - `Jackie_Mentorship_v8_Timeline.edl`
+   - `PREMIERE_TIMELINE_IMPORT_CUESHEET.md`
+   - Rendered in Apple ProRes 4444 Straight Alpha (`yuva444p12le`, 1280x720 @ 24fps) and mirrored to Google Drive.
