@@ -209,3 +209,30 @@ To enable instant import and perfect dialogue synchronization inside Adobe Premi
 3. **`Jackie_Mentorship_v7_Timeline.edl`**: Universal CMX 3600 Edit Decision List.
 4. **`PREMIERE_TIMELINE_IMPORT_CUESHEET.md`**: Comprehensive human-readable cue sheet listing exact timecodes (`HH:MM:SS:FF` and seconds), dialogue triggers, video track routing, and screen coordinates for every composition.
 All 4 import tools deployed to `01_Guide_And_Documentation` in both local exports and Google Drive mirror.
+
+
+### Multi-Pass Visual Refinements & Negative-Space Alignment (5-Pass Review) — 2026-09-07
+Following 5 systematic review passes (addressing animation variety, student art padding, dialogue relevance, and camera occlusion):
+1. **Multi-Typology Lifecycle Animations**:
+   - Replaced uniform easing with 5 distinct motion personalities across all 25 compositions:
+     - **Kinetic Slams** (Comps 01, 19, 24): Aggressive scale overshoot (`1.5 -> 0.96 -> 1.0`) with rapid snap exit.
+     - **Card Rotation Springs** (Comps 02, 03, 04, 06, 18, 20, 23): Angled spring physics with physical settling.
+     - **Widescreen Presentations** (Comps 05, 07, 08, 09, 10, 16, 17): Horizontal door push and card expansion.
+     - **Lateral HUD Slides** (Comps 21, 22, 25): Smooth negative-space lateral wipes.
+     - **Tactile Folder Unfolds** (Comps 11, 12, 13, 14, 15): Accordion / tab rising motion.
+2. **Student Splash Framing & Padding (Comps 04, 08, 18)**:
+   - Eliminated bad padding and cropping on Simona Calà and Giulia Boscolo's widescreen concept sheets:
+     - **Comp 04**: Streamlined top banner (`720x110` at `y=68`), slim pill at `y=138`, and flanking landscape presentation cards (`380x260` at `y=345`) using `ImageOps.contain` on white backing with zero bottom clipping.
+     - **Comp 08 (Complete Overhaul)**: Redesigned from generic roadmap into *"THE 10-WEEK PROGRESSION: TWO REAL STUDENTS"* directly featuring Giulia Boscolo (*The Lagoon Family*) and Simona Calà (*Nyra & Spirit Guide*), comparing Week 1 rough silhouettes against Week 10 studio final art with quote badge *"SO LET'S BULLY SOME STUDENTS"*, directly matching Jackie's dialogue cue at `01:12-01:23`.
+     - **Comp 18**: Enabled `use_contain=True` on polaroids so Sonya D.'s full body, head, hair, and headphones are 100% visible (no cropped head), Giulia's Lagoon Family lineup is fully visible, and Simona's Nyra dancer is cleanly preserved.
+3. **Comp 19 Overhaul (Mapal Stacked Kinetic Typography)**:
+   - Eliminated rigid green boxes and text clipping.
+   - Built authentic Mapal stacked kinetic layout in left negative space (`X: 60-700`):
+     - Line 1A: *"STOP HOARDING"* in 46pt Supercorn cream with 5px ink outline.
+     - Line 1B: *"TUTORIALS"* slammed down and struck out by a dynamic angled red marker strike with orange core (`p >= 0.40s`).
+     - Line 2: *"GET REAL FEEDBACK!"* exploding on an electric lime highlighter ribbon with yellow starbursts and 6px comic outline.
+     - Line 3: Pill badge *"1-ON-1 PERSONALIZED PAINTOVERS • DIRECT CRITIQUES"*.
+4. **Talking-Head Occlusion Fixes (Comps 21 & 25)**:
+   - Jackie's camera frame vignette occupies the right side (`X: 750 to 1180`).
+   - **Comp 21 (Draw-Over Slider HUD)**: Moved from `X=1010` (which occluded Jackie) to left negative space (`cx=380, cy=390`), sliding in from left (`from_left=True`).
+   - **Comp 25 (Dual Flanking Comparison)**: Consolidated Step 1 ("ROUGH SHAPES") and Step 2 ("HERO FINISH") side-by-side inside the left negative space (`X: 65 to 635`), leaving the entire right half (`X: 635 to 1280`) 100% clear for Jackie's face.
