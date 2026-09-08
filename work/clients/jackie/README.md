@@ -310,3 +310,19 @@ Incorporated 8 direct timestamped editorial comments from client Antonio Caggian
    - `PREMIERE_TIMELINE_IMPORT_CUESHEET.md`
    - Video Track Routing: All 20+ compositions specifically routed to Tracks V13 (standard overlays) and V14 (stickers/punchlines), leaving Tracks V1 through V12 completely clear for the editor's A-roll, B-roll, camera, and zooms.
    - Synced to both `D:\Exports\Mentorship_Animations_Package\` and Google Drive mirror.
+
+### Premiere Pro Sequence Import Fix & V13/V14 Track Targeting Protocol — 2026-09-08
+1. **Root Cause Analysis**:
+   - In FCP XML (`xmeml`), empty `<track></track>` tags cause Premiere Pro's XML parser to fail sequence creation.
+   - When empty tracks V1–V12 were included, Premiere dropped the sequence and fell back to importing only the `.mov` footage into the bin, resulting in no timeline appearing.
+2. **XML Restructuring**:
+   - Structured `Jackie_Mentorship_v9_Timeline_Import.xml` with 2 clean, populated tracks:
+     - **Track 1**: 15 Primary Animation Overlays (calibrated for V13 placement).
+     - **Track 2**: 5 Callouts, Badges & Punchlines (calibrated for V14 placement).
+   - Named Sequence: `Jackie_Mentorship_v9_Animations_V13_V14` with duration `32150` frames @ 24fps.
+3. **4-Step Transfer Protocol into Master Sequence (`mentorshipfall2026`)**:
+   - **Step 1**: In Premiere Pro, `File > Import...` `Jackie_Mentorship_v9_Timeline_Import.xml`. The Sequence `Jackie_Mentorship_v9_Animations_V13_V14` appears in the Project Bin.
+   - **Step 2**: Double-click `Jackie_Mentorship_v9_Animations_V13_V14` in the bin to open it in the Timeline.
+   - **Step 3**: Press `Ctrl+A` (Select All) and `Ctrl+C` (Copy).
+   - **Step 4**: Switch to master timeline tab `mentorshipfall2026`, highlight track targets **V13** and **V14** in the track header, snap playhead to start (`Home`), and press `Ctrl+V` (Paste).
+   - All 20 calibrated animations land on V13 and V14 with frame-accurate speech sync.
