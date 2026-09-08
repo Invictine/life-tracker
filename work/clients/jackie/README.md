@@ -10,6 +10,12 @@
 - [Animation package](https://drive.google.com/drive/folders/1ilIpbQzwys78A6IyC5D4qJM41w6qetja)
 - [Canonical revised guide](https://drive.google.com/file/d/1cqPJHfBqRyptdjJyqZi2DbELJtV5cVl0/view): `01_Guide_And_Documentation/GUIDE_AND_TIMELINE_MAP.md`.
 
+
+## Four centered popup replacements — 2026-09-08
+A separate four-clip set was delivered at `D:\Exports\Mentorship_Animations_Package\codex\Four_Popups_2026-09-08\`: Time Out (3.5s), class benefits (14s), beginner/intermediate plus artist backgrounds (7s), and October 11 start / October 10 join-by (4s). User explicitly requested centered popup layouts with animated entrances/exits and orange/jade colors. This set uses Montserrat, cream cards, orange #FF6B35 and jade #059669. Benefits correctly say TA answers and written feedback.
+
+Includes four silent 1280×720/24fps ProRes 4444 alpha masters, four H.264 previews on jade background, overview, stills, gallery, manifest and portable Pillow source. All eight movies fully decoded; 684 master frames and transparent first/last frames verified; representative layouts and motion samples inspected. Suggested source in-points are 440.833, 456.917, 487.583 and 504.792 seconds; comment timestamps are review locations, not animation in-points. No Premiere project or existing audio was altered. These are centered modal graphics; final compositing/positioning over footage remains editorial work. Existing package assets were preserved. Acceptance is pending.
+
 ## Current state — 2026-09-07
 The user requested new animations from the canonical v4 plan, explicitly preserving existing animations and placing new work in a **codex** subfolder.
 
