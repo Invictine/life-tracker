@@ -11,6 +11,9 @@
 - [Canonical revised guide](https://drive.google.com/file/d/1cqPJHfBqRyptdjJyqZi2DbELJtV5cVl0/view): `01_Guide_And_Documentation/GUIDE_AND_TIMELINE_MAP.md`.
 
 
+## Two matching opening popups — 2026-09-08
+Delivered separately at `D:\Exports\Mentorship_Animations_Package\codex\Opening_Popups_2026-09-08\`. Art-school hook: “You know what sounds great? ART SCHOOL!” starts at 00:00:03:12, 43 frames. Benefits sequence starts at 00:00:08:19, 353 frames: assignments, deadlines, students suffering alongside you, someone to ask when stuck, reason to finish portfolio; then “Seems pretty cool, actually” and “Industry ready.” Matches the revised cream/orange/jade/Montserrat popup style. Two silent ProRes 4444 alpha masters, previews, overview, stills and portable source. All four movies decoded, geometry/frame counts and transparent endpoint alpha verified. No original project or earlier popups changed; final placement and acceptance pending.
+
 ## Four centered popup replacements — 2026-09-08
 Latest copy revision: removed “Learn together. Put it into practice.” and “Your starting point is welcome here.”; replaced “Make room for your art” with the direct CTA “Join the Fall 2026 class”. Tightened card heights to remove the resulting empty space. The three affected animations were re-rendered.
 
