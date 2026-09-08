@@ -326,3 +326,11 @@ Incorporated 8 direct timestamped editorial comments from client Antonio Caggian
    - **Step 3**: Press `Ctrl+A` (Select All) and `Ctrl+C` (Copy).
    - **Step 4**: Switch to master timeline tab `mentorshipfall2026`, highlight track targets **V13** and **V14** in the track header, snap playhead to start (`Home`), and press `Ctrl+V` (Paste).
    - All 20 calibrated animations land on V13 and V14 with frame-accurate speech sync.
+
+### Direct Premiere Project (.prproj) Timeline Injection — 2026-09-08
+- **Why XML Import didn't alter the active timeline**: In Premiere Pro, importing an XML creates a standalone Sequence asset in the Project Bin; it never auto-inserts clips into an already-open editing timeline (`mentorshipfall2026`).
+- **Direct Native Injection**:
+  - Injected all 15 primary animations directly into **Track V13** and all 5 stickers/callouts directly into **Track V14** of the master sequence `mentorshipfall2026` inside the Premiere project.
+  - Deployed ready-to-open project: `mentorshipfall2026_JDnotes_v02_ANIMATIONS_PLACED.prproj` and updated `mentorshipfall2026_JDnotes_v02.prproj`.
+  - Preserved original backup: `mentorshipfall2026_JDnotes_v02_ORIGINAL_BACKUP.prproj`.
+  - Opening this project opens `mentorshipfall2026` with all 20 graphics already positioned at their exact timestamps on V13 and V14.
