@@ -11,6 +11,11 @@
 - [Canonical revised guide](https://drive.google.com/file/d/1cqPJHfBqRyptdjJyqZi2DbELJtV5cVl0/view): `01_Guide_And_Documentation/GUIDE_AND_TIMELINE_MAP.md`.
 
 
+## Weekly portfolio folder animation — 2026-09-08
+Created `codex/Revision_02/I08_Weekly_Folder_Animation/` beside the supplied assets in the Google Drive package; mirrored to `D:\Exports\Mentorship_Animations_Package\codex\I08_Weekly_Folder_Animation\`. Uses all 8 Giulia and 8 Simona PNGs from `I08_Folder_Flip_Assets/Weekly_Portfolio_Splash_Pages` and its Simona subfolder. Separate orange/jade folders enter, open, flip through matching stages, hold final portfolios, close and exit. Artwork is fit without additional cropping; early reference boards remain reference/process material. Retains two Week 4 stages and does not invent missing weeks.
+
+Delivered 7.25-second edit-timed version (suggested in 00:01:11:09, out 00:01:18:15) and 12-second slower version, silent 1280×720/24fps ProRes 4444 alpha, MP4 previews, overview, stills, verification and portable source/assets. All four videos fully decoded; 462 master frames, alpha endpoints and active-frame transparency verified. Staged frames and a hinged flip sample visually inspected. Original assets and approved I08 preserved. User acceptance and final timeline placement pending.
+
 ## Two matching opening popups — 2026-09-08
 Delivered separately at `D:\Exports\Mentorship_Animations_Package\codex\Opening_Popups_2026-09-08\`. Art-school hook: “You know what sounds great? ART SCHOOL!” starts at 00:00:03:12, 43 frames. Benefits sequence starts at 00:00:08:19, 353 frames: assignments, deadlines, students suffering alongside you, someone to ask when stuck, reason to finish portfolio; then “Seems pretty cool, actually” and “Industry ready.” Matches the revised cream/orange/jade/Montserrat popup style. Two silent ProRes 4444 alpha masters, previews, overview, stills and portable source. All four movies decoded, geometry/frame counts and transparent endpoint alpha verified. No original project or earlier popups changed; final placement and acceptance pending.
 
