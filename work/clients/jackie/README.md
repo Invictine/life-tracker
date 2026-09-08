@@ -12,6 +12,8 @@
 
 
 ## Four centered popup replacements — 2026-09-08
+Latest copy revision: removed “Learn together. Put it into practice.” and “Your starting point is welcome here.”; replaced “Make room for your art” with the direct CTA “Join the Fall 2026 class”. Tightened card heights to remove the resulting empty space. The three affected animations were re-rendered.
+
 A separate four-clip set was delivered at `D:\Exports\Mentorship_Animations_Package\codex\Four_Popups_2026-09-08\`: Time Out (3.5s), class benefits (14s), beginner/intermediate plus artist backgrounds (7s), and October 11 start / October 10 join-by (4s). User explicitly requested centered popup layouts with animated entrances/exits and orange/jade colors. This set uses Montserrat, cream cards, orange #FF6B35 and jade #059669. Benefits correctly say TA answers and written feedback.
 
 Includes four silent 1280×720/24fps ProRes 4444 alpha masters, four H.264 previews on jade background, overview, stills, gallery, manifest and portable Pillow source. All eight movies fully decoded; 684 master frames and transparent first/last frames verified; representative layouts and motion samples inspected. Suggested source in-points are 440.833, 456.917, 487.583 and 504.792 seconds; comment timestamps are review locations, not animation in-points. No Premiere project or existing audio was altered. These are centered modal graphics; final compositing/positioning over footage remains editorial work. Existing package assets were preserved. Acceptance is pending.
