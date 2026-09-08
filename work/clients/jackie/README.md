@@ -308,4 +308,5 @@ Incorporated 8 direct timestamped editorial comments from client Antonio Caggian
    - `Jackie_Mentorship_v9_Markers.csv` (Includes audio cut marker at `00:06:53:05`)
    - `Jackie_Mentorship_v9_Timeline.edl`
    - `PREMIERE_TIMELINE_IMPORT_CUESHEET.md`
+   - Video Track Routing: All 20+ compositions specifically routed to Tracks V13 (standard overlays) and V14 (stickers/punchlines), leaving Tracks V1 through V12 completely clear for the editor's A-roll, B-roll, camera, and zooms.
    - Synced to both `D:\Exports\Mentorship_Animations_Package\` and Google Drive mirror.
