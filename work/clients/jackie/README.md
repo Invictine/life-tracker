@@ -273,3 +273,39 @@ Incorporated 8 direct timestamped editorial comments from client Antonio Caggian
    - `Jackie_Mentorship_v8_Timeline.edl`
    - `PREMIERE_TIMELINE_IMPORT_CUESHEET.md`
    - Rendered in Apple ProRes 4444 Straight Alpha (`yuva444p12le`, 1280x720 @ 24fps) and mirrored to Google Drive.
+
+### Word-Accurate Timeline Recalibration & Comp 02 Two-Beat Overhaul (v9 Suite) — 2026-09-08
+1. **Word-Level Timeline Recalibration**:
+   - User provided exact speech-to-text transcript JSON spanning the entire 1337-second (22:17.75) master video (`mentorshipfall2026_V2.mp4`).
+   - All 20+ compositions and markers recalibrated to microsecond word start/end times:
+     - Comp 01 (Toe Hook): `0.15s` - `2.75s` (Jackie: *"You thought I wouldn't notice..."*)
+     - Comp 02 (Art School): `3.50s` - `8.70s` (Jackie: *"You know what sounds great? Art school. But you know what doesn't? Actually going to art school."*)
+     - Comp 03 (5-Point Benefits): `8.80s` - `17.30s` (expanded from 4.5s to 8.5s to fit full dialogue span!)
+     - Comp 04 (Hero Mentorship): `23.50s` - `28.00s`
+     - Comp 05 (Three Core Pillars): `30.05s` - `35.75s`
+     - Comp 06 (Student Spotlight): `43.85s` - `49.35s`
+     - Comp 07 (Skill Levels Trio): `53.30s` - `58.55s`
+     - Comp 19 (Highlighter Punchline): `62.75s` - `67.50s`
+     - Comp 08 (Progression Roadmap): `71.40s` - `81.40s` (covers *"picked two feedback students"* through *"let us bully some students"*)
+     - Comp 13 (Two Process Folders): `138.50s` - `145.00s`
+     - Comp 26 (Marco Later Stage Reveal): `358.30s` - `365.80s` (synchronized to Jackie's discussion of Marco's hat and expression)
+     - Comp 23 (Mapal Time Out Graphic): `440.90s` - `445.40s` (synced to exact syllable *"Okay, quick time out!"*)
+     - Comp 27 (Spoken Points Checklist): `457.10s` - `466.10s` (synced to full spoken checklist)
+     - Comp 09 (Bento Curriculum): `470.25s` - `475.75s`
+     - Comp 14 (Tutorial Cascade & Do The Work): `477.50s` - `483.50s`
+     - Comp 28 (Montserrat Levels & Personas): `487.70s` - `494.20s`
+     - Comp 15 (Website Walkthrough): `500.10s` - `504.90s` (synced to *"I'll leave the link below..."*)
+     - Comp 11 (Key Dates Alert): `504.90s` - `508.90s` (synced to *"October 11th start • October 10th deadline"*)
+     - Comp 10 (Tier Comparison Slide): `509.00s` - `515.50s`
+     - Comp 12 (Outro Dual Portfolio CTA): `1311.40s` - `1320.90s` (synced to *"Ten weeks, two different artists and two very different portfolios..."*)
+2. **Comp 02 Detailed Two-Beat Comedy Animation Overhaul**:
+   - **Beat 1 (`t = 3.50s - 5.25s`)**: Idealized dream of Art School. High-energy yellow banner (*"YOU KNOW WHAT SOUNDS GREAT? ART SCHOOL!"*), clean 3D neoclassical academy with warm golden sunburst, *"PRESTIGIOUS ACADEMY"* ribbon, and 3 dreamy perk cards with vector checkmarks (*Creative Community*, *Dedicated Studio Space*, *Mastering The Craft*).
+   - **Transition (`t = 5.25s - 6.65s`)**: Dramatic comic question pop-in (*"BUT YOU KNOW WHAT DOESN'T?!"*).
+   - **Beat 2 (`t = 6.65s - 8.70s`)**: Reality check card slams down over Beat 1 with hazard stripes (*"ACTUALLY GOING TO ART SCHOOL:"*), official tuition debt bill (*"-$200,000 DEBT"*, *"4 YEARS WASTED"*), and an enormous distressed red rubber stamp (*"NO."* in 64pt Super Corn) slamming down with red diagonal strike line and tight action burst lines.
+   - Rendered to ProRes 4444 Straight Alpha (36.1 MB) and H.264 preview overlay (0.53 MB).
+3. **Premiere Pro v9 Import Suite Deployed**:
+   - `Jackie_Mentorship_v9_Timeline_Import.xml` (FCP 7 XML)
+   - `Jackie_Mentorship_v9_Markers.csv` (Includes audio cut marker at `00:06:53:05`)
+   - `Jackie_Mentorship_v9_Timeline.edl`
+   - `PREMIERE_TIMELINE_IMPORT_CUESHEET.md`
+   - Synced to both `D:\Exports\Mentorship_Animations_Package\` and Google Drive mirror.
