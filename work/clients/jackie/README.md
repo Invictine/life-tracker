@@ -363,3 +363,13 @@ Incorporated 8 direct timestamped editorial comments from client Antonio Caggian
   - Deployed ready-to-open project: `mentorshipfall2026_JDnotes_v02_ANIMATIONS_PLACED.prproj` and updated `mentorshipfall2026_JDnotes_v02.prproj`.
   - Preserved original backup: `mentorshipfall2026_JDnotes_v02_ORIGINAL_BACKUP.prproj`.
   - Opening this project opens `mentorshipfall2026` with all 20 graphics already positioned at their exact timestamps on V13 and V14.
+
+
+## Final note revisions and last two animations — 2026-09-09
+Delivered a separate dated review package at `D:\Exports\Mentorship_Animations_Package\codex\Final_Review_2026-09-09\` and mirrored it to `Current videos\2026 fall mentorship\Mentorship_Animations_Package\codex\Revision_03\Final_Review_2026-09-09\`. Workspace review entry: `outputs/Jackie_Final_Review_2026-09-09/index.html`. Earlier packages and source renders remain unchanged; user acceptance is pending.
+
+The four note revisions center the opening checklist labels, remove the small `CLASS BENEFITS` tag and add lower breathing room, rebuild Join the Class / Apply for Feedback as final-resolution Montserrat cards instead of enlarged website crops, and replace Key dates with orange `FALL 2026 TERM` plus a larger `JOIN BY`. The date master ends at the frame boundary `00:08:28:19` before the following sentence.
+
+The website revision places the user-supplied exact Jackie thumbnail inside the original scrolling mentorship-page video player with a centered play button. Its perspective quad is tracked through the visible player frames and clipped beneath the fixed browser bar during partial occlusion. The companion tutorial animation replaces the full YouTube-page cutaway with two real long-form tutorial thumbnails beside Jackie, timed at `00:07:58:16`, with separate gentle pop SFX.
+
+The package contains six requested animations: six ProRes 4444 alpha masters, six review previews, separate tutorial pop WAV, timing/source provenance, stills/contact sheets, and verification records. All ten new video deliverables fully decoded at 24fps; the four popup masters and tutorial overlay have transparent endpoints. The website clip preserves the original eight-second browser animation lifecycle. Client placement and acceptance remain pending.
