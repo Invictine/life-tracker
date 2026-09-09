@@ -377,3 +377,7 @@ The package contains six requested animations: six ProRes 4444 alpha masters, si
 
 ### No-orange website export — 2026-09-10
 Added a clearly named transparent website animation master at `Final_Review_2026-09-09/02_Final_Two_Animations/Alpha_Masters/09_Website_Scroll_Thumbnail_v3_No_Orange_Transparent.mov`, with a neutral-background review preview beside it. The ProRes 4444 master is1920x1080/24fps/192 frames and preserves the tracked Jackie thumbnail/play button while removing the orange background behind the browser window. Full decode and alpha inspection passed. Workspace, D: export mirror, and Google Drive project mirror were updated; earlier renders remain unchanged.
+
+
+### Website thumbnail tracking repair — 2026-09-10
+User reported the thumbnail changed size in both the orange-background and transparent website versions and explicitly requested overwriting the original deliverables. Root cause was a six-frame contour merge when the black video player touched the dark fixed browser header: detected width jumped from about442px to565px. Frames54–61 now retain the last valid player perspective and dimensions and translate vertically with measured scroll offsets before clipping beneath the header. The four existing v3 full/alpha/no-orange/neutral filenames were overwritten in the workspace, D: export, and Google Drive Revision_03 mirrors. All four outputs fully decoded; visual transition sheets confirm the size pulse is gone.
