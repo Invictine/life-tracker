@@ -31,6 +31,23 @@ Eight chapters:
 
 Do not spend time making comprehensive notes. Maintain only a concise formula/error sheet.
 
+## Progress
+
+### Chapter 1 — Electric Charges and Fields
+
+Retrieval completed through:
+- charge fundamentals and electron transfer
+- conductors, insulators, grounding and induction
+- additivity, conservation and quantisation of charge
+
+Current next topic: Coulomb's law.
+
+Observed errors to revisit:
+- powers-of-ten / unit sanity checks in electron-count and charge-rate numericals
+- induction sign logic: positive inducing rod attracts electrons from Earth into a grounded conductor; negative inducing rod drives electrons from conductor to Earth
+
+Conceptual understanding so far is strong; numerical notation and exponent handling need tighter checking.
+
 ## Schedule
 
 ### September 10
