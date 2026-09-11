@@ -1,6 +1,6 @@
 # Class 12 Physics Sprint — September 10–13, 2026
 
-Last updated: 2026-09-10
+Last updated: 2026-09-11
 
 ## Current state
 
@@ -39,14 +39,24 @@ Retrieval completed through:
 - charge fundamentals and electron transfer
 - conductors, insulators, grounding and induction
 - additivity, conservation and quantisation of charge
+- Coulomb's law and inverse-square scaling
+- superposition of electrostatic forces
+- electric field and electric-field superposition
+- electric field lines
+- electric dipole and dipole moment
+- axial and equatorial dipole fields, exact and far-field forms
+- torque on a dipole in a uniform electric field; stable/unstable orientation
 
-Current next topic: Coulomb's law.
+Current next topic: continuous charge distributions (linear, surface and volume charge density), then electric flux and Gauss's law/applications.
 
 Observed errors to revisit:
-- powers-of-ten / unit sanity checks in electron-count and charge-rate numericals
+- powers-of-ten / SI-unit sanity checks in electrostatics numericals
+- vector direction signs and quadrant identification
+- distinguish exact dipole-field formulas from far-field approximations
 - induction sign logic: positive inducing rod attracts electrons from Earth into a grounded conductor; negative inducing rod drives electrons from conductor to Earth
+- for a dipole in a uniform field, forces on +q and -q are equal in magnitude and opposite in direction; torque exists because their lines of action differ, not because the forces are unequal
 
-Conceptual understanding so far is strong; numerical notation and exponent handling need tighter checking.
+Conceptual understanding is strong; main risk is calculation/sign discipline and formula-condition precision.
 
 ## Schedule
 
